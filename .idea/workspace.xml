@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="made two command until now (ls -a, touch) and made also the main that will handle them">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
+    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added the help method and the (&gt;) operator">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/LsACommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/LsACommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/TouchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/TouchCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,7 @@
       <workItem from="1729794803192" duration="1467000" />
       <workItem from="1729955141983" duration="2457000" />
       <workItem from="1729971582139" duration="3612000" />
-      <workItem from="1730012935702" duration="2392000" />
+      <workItem from="1730012935702" duration="2700000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -119,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730015202431</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added the help method and the (&gt;) operator">
+      <option name="closed" value="true" />
+      <created>1730015380958</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730015380958</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +148,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change" />
     <MESSAGE value="made two command until now (ls -a, touch) and made also the main that will handle them" />
-    <option name="LAST_COMMIT_MESSAGE" value="made two command until now (ls -a, touch) and made also the main that will handle them" />
+    <MESSAGE value="added the help method and the (&gt;) operator" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the help method and the (&gt;) operator" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
