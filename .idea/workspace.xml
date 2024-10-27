@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added the help method and the (&gt;) operator">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/LsACommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/LsACommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/TouchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/TouchCommand.java" afterDir="false" />
+    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added comments to the code">
+      <change afterPath="$PROJECT_DIR$/src/test/java/LsACommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/OutputRedirectorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TouchCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,25 +49,76 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CommandLineInterpreter.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CommandLineInterpreter.executor": "Run",
+    "Application.Main.executor": "Run",
+    "JUnit.LsACommandTest.executor": "Run",
+    "JUnit.LsACommandTest.testEmptyDirectory.executor": "Run",
+    "JUnit.OutputRedirectorTest.executor": "Run",
+    "JUnit.TouchCommandTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="LsACommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OS_Ass1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LsACommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LsACommandTest.testEmptyDirectory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OS_Ass1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LsACommandTest" />
+      <option name="METHOD_NAME" value="testEmptyDirectory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OutputRedirectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OS_Ass1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OutputRedirectorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TouchCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OS_Ass1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TouchCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OutputRedirectorTest" />
+        <item itemvalue="JUnit.TouchCommandTest" />
+        <item itemvalue="JUnit.LsACommandTest" />
+        <item itemvalue="JUnit.LsACommandTest.testEmptyDirectory" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -86,7 +139,8 @@
       <workItem from="1729794803192" duration="1467000" />
       <workItem from="1729955141983" duration="2457000" />
       <workItem from="1729971582139" duration="3612000" />
-      <workItem from="1730012935702" duration="2700000" />
+      <workItem from="1730012935702" duration="2755000" />
+      <workItem from="1730057210403" duration="1040000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -128,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730015380958</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added comments to the code">
+      <option name="closed" value="true" />
+      <created>1730015695165</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730015695165</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +211,8 @@
     <MESSAGE value="change" />
     <MESSAGE value="made two command until now (ls -a, touch) and made also the main that will handle them" />
     <MESSAGE value="added the help method and the (&gt;) operator" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the help method and the (&gt;) operator" />
+    <MESSAGE value="added comments to the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments to the code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
