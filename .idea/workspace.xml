@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="aaa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
-=======
-    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added comments to the code">
-      <change afterPath="$PROJECT_DIR$/src/test/java/LsRCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MoveCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PWDCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/appendToFileOperatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/LsRCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/LsRCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/moveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/moveCommand.java" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/test/java/appendToFileOperatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/appendToFileOperatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +31,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-<<<<<<< Updated upstream
     &quot;url&quot;: &quot;https://github.com/AbdooMatrix/OS_-CommandLineInterpreter&quot;,
     &quot;accountId&quot;: &quot;e96b52e1-c3aa-4064-9dd5-782855f6f5d2&quot;
-=======
-    &quot;url&quot;: &quot;https://github.com/AbdooMatrix/OS_CommandLineInterpreter.git&quot;,
-    &quot;accountId&quot;: &quot;c2145786-3b09-4fec-a091-498ab5b33c5c&quot;
->>>>>>> Stashed changes
   }
 }</component>
   <component name="ProblemsViewState">
@@ -58,9 +42,7 @@
     &quot;associatedIndex&quot;: 1
     }</component>
   <component name="ProjectId" id="2ntZQubW45ymgRiPzmYqVY4kMgR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -69,22 +51,12 @@
   "keyToString": {
     "Application.CommandLineInterpreter.executor": "Run",
     "Application.Main.executor": "Run",
-<<<<<<< Updated upstream
     "Application.cd.executor": "Run",
-    "JUnit.LsACommandTest.executor": "Run",
-    "JUnit.LsACommandTest.testEmptyDirectory.executor": "Run",
-    "JUnit.OutputRedirectorTest.executor": "Run",
-    "JUnit.TouchCommandTest.executor": "Run",
-=======
     "JUnit.LsACommandTest.executor": "Run",
     "JUnit.LsACommandTest.testEmptyDirectory.executor": "Run",
     "JUnit.LsRCommandTest.executor": "Run",
     "JUnit.OutputRedirectorTest.executor": "Run",
-    "JUnit.PWDCommandTest.executor": "Run",
     "JUnit.TouchCommandTest.executor": "Run",
-    "JUnit.appendToFileOperatorTest.executor": "Run",
-    "JUnit.moveCommandTest.executor": "Run",
->>>>>>> Stashed changes
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
@@ -110,6 +82,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LsRCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OS_Ass1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LsRCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoveCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OS_Ass1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MoveCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OutputRedirectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OS_Ass1" />
       <option name="PACKAGE_NAME" value="" />
@@ -130,8 +120,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OutputRedirectorTest" />
+        <item itemvalue="JUnit.MoveCommandTest" />
+        <item itemvalue="JUnit.LsRCommandTest" />
         <item itemvalue="JUnit.LsACommandTest" />
+        <item itemvalue="JUnit.OutputRedirectorTest" />
         <item itemvalue="JUnit.TouchCommandTest" />
       </list>
     </recent_temporary>
@@ -158,13 +150,8 @@
       <workItem from="1729971582139" duration="3612000" />
       <workItem from="1730012935702" duration="2755000" />
       <workItem from="1730057210403" duration="1040000" />
-<<<<<<< Updated upstream
       <workItem from="1730133162730" duration="36000" />
       <workItem from="1730135199827" duration="7599000" />
-=======
-      <workItem from="1730132964406" duration="7183000" />
-      <workItem from="1730140851834" duration="3043000" />
->>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />

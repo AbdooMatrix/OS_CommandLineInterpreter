@@ -1,4 +1,4 @@
-import org.os.appendToFileOperator ;
+import org.os.AppendToFileOperator ;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,14 +10,14 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class appendToFileOperatorTest {
+public class AppendToFileOperatorTest {
 
-    private appendToFileOperator fileOperator;
+    private AppendToFileOperator fileOperator;
     private String testFilePath;
 
     @BeforeEach
     public void setUp() {
-        fileOperator = new appendToFileOperator();
+        fileOperator = new AppendToFileOperator();
         testFilePath = "testFile.txt"; // Temporary file for testing
     }
 

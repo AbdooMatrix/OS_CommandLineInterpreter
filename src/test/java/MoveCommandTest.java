@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.AfterEach;
-import org.os.moveCommand;
+import org.os.MoveCommand;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -40,14 +40,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 
-class moveCommandTest {
-    private moveCommand command;
+class MoveCommandTest {
+    private MoveCommand command;
     private File sourceFile;
     private File destinationFile;
 
     @BeforeEach
     void setUp() throws IOException {
-        command = new moveCommand();
+        command = new MoveCommand();
 
         // Initialize the files and directories with absolute paths
         sourceFile = new File("E:\\test1.txt");
