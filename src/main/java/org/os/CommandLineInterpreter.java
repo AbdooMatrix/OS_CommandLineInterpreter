@@ -1,14 +1,15 @@
 package org.os;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CommandLineInterpreter {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
         while (true) {
-            PWDCommand currDirec = new PWDCommand();
+            PWDCommand currDirec = new PWDCommand(); // always printing current working directory.
             System.out.print(currDirec.pwd()+" --> ");
             String input = scanner.nextLine().trim();
 
@@ -38,17 +39,26 @@ public class CommandLineInterpreter {
             {
                 if (tokens.length == 1) {
 //                    output = new LsCommand().listFiles(".");
-                } else if ("-a".equals(tokens[1])) {
+                }
+                else if ("-a".equals(tokens[1])) {
                     output = new LsACommand().listAllFiles(tokens.length > 2 ? tokens[2] : ".");
-                } else if (tokens[1] == "-r") {
-//                    output = new LsRCommand().listFilesReversed(tokens.length > 2 ? tokens[2] : ".");
-                } else {
+                }
+                else if ("-r".equals(tokens[1])) {
+                    output = new LsRCommand().listFilesReversed(tokens.length > 2 ? tokens[2] : ".");
+                }
+                else {
                     output = "Error: Unsupported 'ls' option. Supported options: '-a' (all files), '-r' (reverse order).\n";
                 }
             }
+            else if("mv".equals(command)){
+                String srcPath = tokens[1] , destPath = tokens[2] ;
+                moveCommand mv = new moveCommand();
+                mv.move(srcPath, destPath);
+            }
             else if ("touch".equals(command)) {
                 output = new TouchCommand().createOrUpdateFile(tokens.length > 1 ? tokens[1] : null);
-            } else {
+            }
+            else {
                 output = "Error: Command not recognized. Type 'help' for a list of commands.\n";
             }
 
