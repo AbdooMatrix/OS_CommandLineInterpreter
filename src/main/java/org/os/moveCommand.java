@@ -36,7 +36,7 @@ public class moveCommand {
         Files.move(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
         // Print a success message if the move operation completes without exceptions
-        System.out.println("Moved successfully from " + sourcePath + " to " + destinationPath);
+        System.out.println("\nMoved successfully from (" + sourcePath + ") to (" + destinationPath + ")\n");
     }
 }
 

@@ -11,9 +11,10 @@ import java.util.stream.Collectors;
 // ls-r --> reverses the listing order of files and directories, which can be useful
 //          when you want to see items in the opposite order of default sorting (e.g., reverse alphabetical).
 
-public class LSRCommand
+public class LsRCommand
 {
-    public void listAllFilesReversed(String directoryPath) {
+    public String listFilesReversed(String directoryPath) {
+        StringBuilder fileNames = new StringBuilder();
         try {
             // List all files and directories in the specified path
             List<Path> files = Files.list(Paths.get(directoryPath)) // Create a stream of paths in the directory
@@ -22,14 +23,18 @@ public class LSRCommand
                     // Collect the sorted paths into a list
                     .collect(Collectors.toList());
 
-            System.out.println("the files in reverse order are ");
+            fileNames.append("\n");
+            fileNames.append("Files in reverse order:\n");
             // Print the sorted file names to the console
             for (Path file : files) {
-                System.out.println(file.getFileName()); // Print each file's name
+                fileNames.append(file.getFileName().toString()).append("\n");
             }
+            fileNames.append("\n");
         } catch (IOException e) {
             // Handle any I/O exceptions that may occur during the directory reading process
             System.err.println("Error reading directory: " + e.getMessage()); // Print the error message to the standard error stream
         }
+
+        return fileNames.toString();
     }
 }

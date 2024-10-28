@@ -20,8 +20,7 @@ public class LsACommand {
 
             // If files are not null, append each file's name to the output
             if (files != null) {
-                Arrays.stream(files)
-                        .forEach(file -> output.append(file.getName()).append("\n"));
+                Arrays.stream(files).forEach(file -> output.append(file.getName()).append("\n"));
             }
         } else {
             // If the path is not a valid directory, append an error message
