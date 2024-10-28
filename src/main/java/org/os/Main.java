@@ -26,7 +26,7 @@ public class Main {
                     break;
                 case "rmdir":
                     RmdirCommand rmdirCommand = new RmdirCommand();
-                    rmdirCommand.rmdir("donia");
+                    rmdirCommand.rmdir();
                     break;
                 default:
                     System.out.println("Unknown command: " + input);
