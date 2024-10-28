@@ -2,8 +2,7 @@ package org.os;
 
 import java.io.File;
 
-public class Mkdir implements command {
-
+public class Mkdir {
     static String cw = System.getProperty("user.dir");
 
     public String execute(String name) {
@@ -27,15 +26,4 @@ public class Mkdir implements command {
             return "Directory already exists: " + dir.getAbsolutePath();
         }
     }
-
-        public static void main(String[] args) {
-            Mkdir mkdirCommand = new Mkdir();
-
-            System.out.println("Current working directory: " + Mkdir.cw);
-            System.out.println(mkdirCommand.execute("testDir"));
-            System.out.println(mkdirCommand.execute("testDir"));
-            System.out.println(mkdirCommand.execute(""));
-            System.out.println(mkdirCommand.execute("nestedDir/subDir"));
-        }
-    }
-
+}

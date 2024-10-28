@@ -9,7 +9,7 @@ import java.io.IOException; // Importing IOException to handle input/output exce
 //It allows you to append the output of a command to a file instead of displaying it on the terminal screen.
 // If the file does not exist, it will be created.
 
-public class appendToFileOperator {
+public class AppendToFileOperator {
     // Method to append text to a specified file
     public void appendToFile(String filePath, String text) throws IOException {
         File file = new File(filePath); // Create a File object with the specified file path
