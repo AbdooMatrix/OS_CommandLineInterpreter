@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -50,8 +49,8 @@ class MoveCommandTest {
         command = new MoveCommand();
 
         // Initialize the files and directories with absolute paths
-        sourceFile = new File("E:\\test1.txt");
-        destinationFile = new File("E:\\Algorithms\\test2.txt");
+        sourceFile = new File("test1.txt");
+        destinationFile = new File("test2.txt");
 
         // Create files and handling potential IOException
         if (!sourceFile.exists()) {
