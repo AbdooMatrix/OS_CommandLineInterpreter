@@ -3,17 +3,34 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added comments to the code">
       <change afterPath="$PROJECT_DIR$/src/test/java/LsACommandTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/OutputRedirectorTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/TouchCommandTest.java" afterDir="false" />
+=======
+    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added the help method and the (&gt;) operator">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/listFilesReverse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/moveFiles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/outputRedirection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/printWorkingDirectory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -49,6 +66,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CommandLineInterpreter.executor": "Run",
@@ -70,6 +88,34 @@
     "onboarding.tips.debug.path": "C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java",
     "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CommandLineInterpreter.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/SolvingJava/cli&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> Stashed changes
   }
 }]]></component>
   <component name="RunManager">
@@ -139,8 +185,18 @@
       <workItem from="1729794803192" duration="1467000" />
       <workItem from="1729955141983" duration="2457000" />
       <workItem from="1729971582139" duration="3612000" />
+<<<<<<< Updated upstream
       <workItem from="1730012935702" duration="2755000" />
       <workItem from="1730057210403" duration="1040000" />
+=======
+      <workItem from="1730012935702" duration="2700000" />
+      <workItem from="1730017926624" duration="443000" />
+      <workItem from="1730018794221" duration="1008000" />
+      <workItem from="1730020712682" duration="1555000" />
+      <workItem from="1730087129830" duration="162000" />
+      <workItem from="1730087355221" duration="26000" />
+      <workItem from="1730087409946" duration="698000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
