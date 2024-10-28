@@ -14,31 +14,26 @@ import java.nio.file.StandardCopyOption;
 
 public class MoveCommand {
     public void move(String sourcePath, String destinationPath) throws IOException {
-
-        // Create File objects for source and destination paths
         File source = new File(sourcePath);
         File destination = new File(destinationPath);
 
-        // Check if the source file or directory exists
+        // Check if the source exists before moving
         if (!source.exists()) {
-            // If the source does not exist, throw an IOException with a custom error message
             throw new IOException("Source file or directory doesn't exist");
         }
 
-        // Check if the source is a directory and if the destination is inside the source
-        // This check prevents moving a directory inside itself, which would cause an error
-        if (source.isDirectory() && destination.getAbsolutePath().startsWith(source.getAbsolutePath())) {
+        // Check for moving a directory into itself
+        if (source.isDirectory() && destination.getPath().startsWith(source.getPath())) {
             throw new IOException("Cannot move a directory inside itself.");
         }
 
         // Move the source file/directory to the destination
-        // StandardCopyOption.REPLACE_EXISTING option will replace the file at the destination if it exists
         Files.move(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
-        // Print a success message if the move operation completes without exceptions
         System.out.println("\nMoved successfully from (" + sourcePath + ") to (" + destinationPath + ")\n");
     }
 }
+
 
 
 

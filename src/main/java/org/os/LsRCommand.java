@@ -23,8 +23,7 @@ public class LsRCommand
                     // Collect the sorted paths into a list
                     .collect(Collectors.toList());
 
-            fileNames.append("\n");
-            fileNames.append("Files in reverse order:\n");
+            fileNames.append("\nFiles in reverse order:\n");
             // Print the sorted file names to the console
             for (Path file : files) {
                 fileNames.append(file.getFileName().toString()).append("\n");
