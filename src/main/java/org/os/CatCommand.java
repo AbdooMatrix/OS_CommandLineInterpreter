@@ -1,48 +1,35 @@
 package org.os;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
 public class CatCommand {
-    private Scanner scanner;
+    public String cat(String[] filePaths) {
+        StringBuilder output = new StringBuilder();
 
-    public CatCommand(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    public void cat() {
-        System.out.print("Enter file names to display, separated by spaces: ");
-
-        // Check if there's input available
-        if (scanner.hasNextLine()) {
-            // Read the entire line of file names and split it into an array
-            String input = scanner.nextLine();
-            String[] fileNames = input.trim().split("\\s+");
-
-            String currentDirectory = System.getProperty("user.dir"); // Get the current directory
-
-            for (String fileName : fileNames) {
-                if (fileName == null || fileName.trim().isEmpty()) {
-                    System.out.println("Error: No file name provided for one of the files.");
-                    continue;
-                }
-
-                String filePath = Paths.get(currentDirectory, fileName).toString();
-
-                try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        System.out.println(line);
-                    }
-                } catch (IOException e) {
-                    System.out.println("Error reading file " + filePath + ": " + e.getMessage());
-                }
-                System.out.println();
+        for (String filePathStr : filePaths) {
+            if (filePathStr == null || filePathStr.trim().isEmpty()) {
+                output.append("Error: No file path provided for one of the files.\n");
+                continue;
             }
-        } else {
-            System.out.println("No input provided.");
+
+            Path filePath = Paths.get(filePathStr); // Treat each input as a full or relative path
+
+            // Read and print each line from the file
+            try (BufferedReader reader = new BufferedReader(new FileReader(filePath.toString()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    output.append(line).append("\n");
+                }
+            } catch (IOException e) {
+                output.append("Error reading file ").append(filePath).append(": ").append(e.getMessage()).append("\n");
+            }
+            output.append("\n"); // Add space between file contents
         }
+
+        return output.toString(); // Return all file contents or errors as a single string
     }
 }
