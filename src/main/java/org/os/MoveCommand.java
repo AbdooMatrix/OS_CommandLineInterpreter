@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption;
 // C:\Users\\username\\Desktop\\example.txt (on Windows).
 // but in java \ is an escape character so we need  \\ instead of \
 
-public class moveCommand {
+public class MoveCommand {
     public void move(String sourcePath, String destinationPath) throws IOException {
 
         // Create File objects for source and destination paths

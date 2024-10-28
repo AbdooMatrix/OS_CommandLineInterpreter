@@ -52,14 +52,14 @@ public class CommandLineInterpreter {
             }
             else if("mv".equals(command)){
                 String srcPath = tokens[1] , destPath = tokens[2] ;
-                moveCommand mv = new moveCommand();
+                MoveCommand mv = new MoveCommand();
                 mv.move(srcPath, destPath);
             }
             else if ("touch".equals(command)) {
                 output = new TouchCommand().createOrUpdateFile(tokens.length > 1 ? tokens[1] : null);
             }
             else if ("cat".equals(command)) {
-                String[] filePaths = new String[tokens.length];
+                String[] filePaths = new String[tokens.length - 1];
                 for (int i = 1; i < tokens.length; i++) {
                     filePaths[i - 1] = tokens[i].trim();
                 }
