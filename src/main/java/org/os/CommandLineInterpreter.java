@@ -58,6 +58,13 @@ public class CommandLineInterpreter {
             else if ("touch".equals(command)) {
                 output = new TouchCommand().createOrUpdateFile(tokens.length > 1 ? tokens[1] : null);
             }
+            else if ("cat".equals(command)) {
+                String[] filePaths = new String[tokens.length];
+                for (int i = 1; i < tokens.length; i++) {
+                    filePaths[i - 1] = tokens[i].trim();
+                }
+                output = new CatCommand().cat(filePaths);
+            }
             else {
                 output = "Error: Command not recognized. Type 'help' for a list of commands.\n";
             }
