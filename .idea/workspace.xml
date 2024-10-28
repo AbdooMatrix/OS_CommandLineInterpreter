@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="ttt">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/HelpText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/ExitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/Mkdir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/Mkdir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/Rm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/RmCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/appendToFileOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/AppendToFileOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/cd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/cdCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/pipe.java" afterDir="false" />
-    </list>
+    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="ttt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,22 +68,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.LsACommandTest.testEmptyDirectory">
+  <component name="RunManager">
     <configuration name="LsACommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OS_Ass1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LsACommandTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LsACommandTest.testEmptyDirectory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="OS_Ass1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LsACommandTest" />
-      <option name="METHOD_NAME" value="testEmptyDirectory" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,7 +98,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LsACommandTest.testEmptyDirectory" />
         <item itemvalue="JUnit.LsACommandTest" />
         <item itemvalue="JUnit.OutputRedirectorTest" />
         <item itemvalue="JUnit.TouchCommandTest" />
@@ -150,7 +127,7 @@
       <workItem from="1730012935702" duration="2755000" />
       <workItem from="1730057210403" duration="1040000" />
       <workItem from="1730133162730" duration="36000" />
-      <workItem from="1730135199827" duration="4588000" />
+      <workItem from="1730135199827" duration="5012000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -200,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730015695165</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ttt">
+      <option name="closed" value="true" />
+      <created>1730140911751</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730140911751</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +207,8 @@
     <MESSAGE value="made two command until now (ls -a, touch) and made also the main that will handle them" />
     <MESSAGE value="added the help method and the (&gt;) operator" />
     <MESSAGE value="added comments to the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments to the code" />
+    <MESSAGE value="ttt" />
+    <option name="LAST_COMMIT_MESSAGE" value="ttt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
