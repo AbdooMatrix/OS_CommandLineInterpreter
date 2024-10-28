@@ -3,34 +3,15 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakeSettings">
-    <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
-    </configurations>
-  </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added comments to the code">
-      <change afterPath="$PROJECT_DIR$/src/test/java/LsACommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/OutputRedirectorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TouchCommandTest.java" afterDir="false" />
-=======
-    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added the help method and the (&gt;) operator">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/listFilesReverse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/moveFiles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/outputRedirection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/printWorkingDirectory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
->>>>>>> Stashed changes
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/moveFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/MoveFilesCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,81 +24,52 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
+    &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;AbdooMatrix&quot;
-  }
-}</component>
+    }
+    }</component>
   <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AbdooMatrix/OS_-CommandLineInterpreter&quot;,
     &quot;accountId&quot;: &quot;e96b52e1-c3aa-4064-9dd5-782855f6f5d2&quot;
-  }
-}</component>
+    }
+    }</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
+    &quot;associatedIndex&quot;: 1
+    }</component>
   <component name="ProjectId" id="2ntZQubW45ymgRiPzmYqVY4kMgR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< Updated upstream
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CommandLineInterpreter.executor": "Run",
-    "Application.Main.executor": "Run",
-    "JUnit.LsACommandTest.executor": "Run",
-    "JUnit.LsACommandTest.testEmptyDirectory.executor": "Run",
-    "JUnit.OutputRedirectorTest.executor": "Run",
-    "JUnit.TouchCommandTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
-=======
   <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
+    &quot;keyToString&quot;: {
     &quot;Application.CommandLineInterpreter.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;JUnit.LsACommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LsACommandTest.testEmptyDirectory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OutputRedirectorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TouchCommandTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/SolvingJava/cli&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
->>>>>>> Stashed changes
-  }
-}]]></component>
+    }
+    }</component>
   <component name="RunManager">
     <configuration name="LsACommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OS_Ass1" />
@@ -158,9 +110,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LsACommandTest" />
         <item itemvalue="JUnit.OutputRedirectorTest" />
         <item itemvalue="JUnit.TouchCommandTest" />
-        <item itemvalue="JUnit.LsACommandTest" />
         <item itemvalue="JUnit.LsACommandTest.testEmptyDirectory" />
       </list>
     </recent_temporary>
@@ -185,18 +137,8 @@
       <workItem from="1729794803192" duration="1467000" />
       <workItem from="1729955141983" duration="2457000" />
       <workItem from="1729971582139" duration="3612000" />
-<<<<<<< Updated upstream
       <workItem from="1730012935702" duration="2755000" />
       <workItem from="1730057210403" duration="1040000" />
-=======
-      <workItem from="1730012935702" duration="2700000" />
-      <workItem from="1730017926624" duration="443000" />
-      <workItem from="1730018794221" duration="1008000" />
-      <workItem from="1730020712682" duration="1555000" />
-      <workItem from="1730087129830" duration="162000" />
-      <workItem from="1730087355221" duration="26000" />
-      <workItem from="1730087409946" duration="698000" />
->>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
