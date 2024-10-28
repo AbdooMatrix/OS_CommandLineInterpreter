@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="added comments to the code">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/moveFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/MoveFilesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/listFilesReverse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/LSRCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/moveFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/moveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/outputRedirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/appendToFileOperator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

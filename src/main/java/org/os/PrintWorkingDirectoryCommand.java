@@ -3,7 +3,7 @@ package org.os;
 
 // pwd --> print working directory.
 
-public class printWorkingDirectory
+public class PrintWorkingDirectoryCommand
 {
     // This method demonstrates how to print the current working directory in Java
     public String pwd(){
