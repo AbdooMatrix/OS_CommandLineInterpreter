@@ -25,6 +25,6 @@ public class cdCommand {
                 return "not a directory: " + path;
             }
         }
-        return "current directory: " + cw;
+        return (cw);
     }
 }

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="aaa">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MoveCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MoveCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/LsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/LsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/cdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/cdCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.MoveCommandTest">
+  <component name="RunManager">
     <configuration name="LsACommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OS_Ass1" />
       <option name="PACKAGE_NAME" value="" />
@@ -123,8 +124,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MoveCommandTest" />
-        <item itemvalue="JUnit.LsACommandTest" />
         <item itemvalue="JUnit.LsRCommandTest" />
+        <item itemvalue="JUnit.LsACommandTest" />
         <item itemvalue="JUnit.OutputRedirectorTest" />
         <item itemvalue="JUnit.TouchCommandTest" />
       </list>

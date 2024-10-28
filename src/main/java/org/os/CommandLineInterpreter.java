@@ -8,9 +8,11 @@ public class CommandLineInterpreter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
+        String currDirec = new PWDCommand().pwd();
+
         while (true) {
-            PWDCommand currDirec = new PWDCommand(); // always printing current working directory.
-            System.out.print(currDirec.pwd()+" --> ");
+            // always printing current working directory.
+            System.out.print(currDirec + " --> ");
             String input = scanner.nextLine().trim();
 
             // Check for output redirection
@@ -38,13 +40,18 @@ public class CommandLineInterpreter {
             else if ("ls".equals(command))
             {
                 if (tokens.length == 1) {
-//                    output = new LsCommand().listFiles(".");
+                    output = LsCommand.ls(currDirec);
                 }
-                else if ("-a".equals(tokens[1])) {
-                    output = new LsACommand().listAllFiles(tokens.length > 2 ? tokens[2] : ".");
-                }
-                else if ("-r".equals(tokens[1])) {
-                    output = new LsRCommand().listFilesReversed(tokens.length > 2 ? tokens[2] : ".");
+                else if (tokens.length <= 3) {
+                    if ("-a".equals(tokens[1])) {
+                        output = new LsACommand().listAllFiles(tokens.length > 2 ? tokens[2] : currDirec);
+                    }
+                    else if ("-r".equals(tokens[1])) {
+                        output = new LsRCommand().listFilesReversed(tokens.length > 2 ? tokens[2] : currDirec);
+                    }
+                    else {
+                        output = LsCommand.ls(tokens[1]);
+                    }
                 }
                 else {
                     output = "Error: Unsupported 'ls' option. Supported options: '-a' (all files), '-r' (reverse order).\n";
@@ -64,6 +71,9 @@ public class CommandLineInterpreter {
                     filePaths[i - 1] = tokens[i].trim();
                 }
                 output = new CatCommand().cat(filePaths);
+            }
+            else if ("cd".equals(command)) {
+                currDirec = new cdCommand().cd(tokens.length > 1 ? tokens[1] : null);
             }
             else {
                 output = "Error: Command not recognized. Type 'help' for a list of commands.\n";
