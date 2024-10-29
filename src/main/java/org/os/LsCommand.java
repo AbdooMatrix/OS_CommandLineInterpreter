@@ -36,7 +36,7 @@ public class LsCommand {
 
             return files.stream()
                     .map(p -> p.getFileName().toString())
-                    .collect(Collectors.joining("\n"));
+                    .collect(Collectors.joining("\n")) + "\n";
         } catch (IOException e) {
             System.err.println("Error listing directory contents: " + e.getMessage());
             return "Error listing directory contents.";
