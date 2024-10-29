@@ -12,11 +12,13 @@ public class HelpText {
                - ls -a [path]: Lists all files, including hidden ones, in the specified directory.
                - ls -r [path]: Lists files in reverse order in the specified directory.
                - touch <file>: Creates a new file or updates the timestamp of an existing file.
+               - mv [sourcePath] [destinationPath]: move a file from a specific directory to another.
                
                Usage:
                - To list all files in the current directory: ls
                - To create or update a file named 'example.txt': touch example.txt
                - To redirect output to a file: ls > output.txt
+               - To move a file from directory to another : mv
                
                Type 'command > file.txt' to redirect any command's output to file.txt.
                """;

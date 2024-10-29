@@ -28,16 +28,16 @@ public class CommandLineInterpreter {
             String command = tokens[0];
             String output = "";
 
-            if ("exit".equals(command))
+            if ("exit".equals(command)) // command == "exit" .
             {
                 System.out.println("Exiting CLI.");
                 break;
             }
-            else if ("help".equals(command))
+            else if ("help".equals(command)) // command == "help" .
             {
                 output = HelpText.getHelpText();
             }
-            else if ("ls".equals(command))
+            else if ("ls".equals(command)) // command == "ls" .
             {
                 if (tokens.length == 1) {
                     output = LsCommand.ls(currDirec);
