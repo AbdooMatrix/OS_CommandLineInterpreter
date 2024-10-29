@@ -5,6 +5,19 @@ package org.os;
 
 public class PWDCommand
 {
+
+    private static PWDCommand instance ;
+
+    private PWDCommand(){}
+
+
+    public static PWDCommand getInstance(){
+        if(instance == null){
+            instance = new PWDCommand() ;
+        }
+        return instance ;
+    }
+
     // This method demonstrates how to print the current working directory in Java
     public String pwd(){
 

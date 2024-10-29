@@ -8,7 +8,9 @@ public class CommandLineInterpreter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
-        String currDirec = new PWDCommand().pwd();
+
+        PWDCommand pwdcommand = PWDCommand.getInstance() ;
+        String currDirec = pwdcommand.pwd() ;
 
         while (true) {
             // always printing current working directory.
@@ -58,8 +60,9 @@ public class CommandLineInterpreter {
                 }
             }
             else if("mv".equals(command)){
-                String srcPath = tokens[1] , destPath = tokens[2] ;
-                MoveCommand mv = new MoveCommand();
+                String srcPath = tokens[1]  ;
+                String destPath = tokens[2] ;
+                MoveCommand mv = MoveCommand.getInstance() ;
                 mv.move(srcPath, destPath);
             }
             else if ("touch".equals(command)) {

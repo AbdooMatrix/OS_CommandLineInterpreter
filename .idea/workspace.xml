@@ -7,7 +7,9 @@
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="aaa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/HelpText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/HelpText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/MoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/PWDCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/PWDCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MoveCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MoveCommandTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +32,12 @@
     &quot;assignee&quot;: &quot;AbdooMatrix&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AbdooMatrix/OS_CommandLineInterpreter.git",
-    "accountId": "c2145786-3b09-4fec-a091-498ab5b33c5c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AbdooMatrix/OS_CommandLineInterpreter.git&quot;,
+    &quot;accountId&quot;: &quot;c2145786-3b09-4fec-a091-498ab5b33c5c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
