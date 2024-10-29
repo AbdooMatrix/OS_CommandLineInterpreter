@@ -8,9 +8,9 @@ public class PWDCommandTest {
 
     @Test
     void testPWD(){
-        PWDCommand command = new PWDCommand();
+        PWDCommand command = PWDCommand.getInstance() ;
 
-        String currentDir = command.pwd() ;
+        String currentDir = command.getCurrentDirec() ;
         String expectedDir = System.getProperty("user.dir");
 
         assertEquals(expectedDir,currentDir , "the current working directory should be the same as the expected directory");

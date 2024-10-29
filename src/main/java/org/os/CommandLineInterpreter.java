@@ -8,7 +8,9 @@ public class CommandLineInterpreter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
-        String currDir = new PWDCommand().pwd();
+
+        PWDCommand pwdcommand = PWDCommand.getInstance();
+        String currDir = pwdcommand.getCurrentDirec();
 
         loop:
         while (true) {
@@ -54,7 +56,7 @@ public class CommandLineInterpreter {
 
                 case "mv":
                     String srcPath = tokens[1], destPath = tokens[2];
-                    MoveCommand mv = new MoveCommand();
+                    MoveCommand mv = MoveCommand.getInstance() ;
                     mv.move(srcPath, destPath);
                     break;
 
