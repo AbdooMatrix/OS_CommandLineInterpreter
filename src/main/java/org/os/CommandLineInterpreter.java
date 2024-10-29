@@ -1,5 +1,7 @@
 package org.os;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +19,21 @@ public class CommandLineInterpreter {
             System.out.print(currDir + " --> ");
             String input = scanner.nextLine().trim();
 
-            // Check for output redirection
-            String[] commandParts = input.split(">");
+            // Split command input based on ">>" first, then ">" to handle both cases
+            String[] commandParts = input.split(">>");
             String commandInput = commandParts[0].trim(); // Command part
-            String filePath = commandParts.length > 1 ? commandParts[1].trim() : null; // Output file if redirected
+            String filePath = null;
+
+            // Check for output redirection using ">"
+            if (commandParts.length > 1) {
+                filePath = commandParts[1].trim(); // Output file if redirected with ">>"
+            } else {
+                // Check for single ">"
+                commandParts = input.split(">");
+                if (commandParts.length > 1) {
+                    filePath = commandParts[1].trim(); // Output file if redirected with ">"
+                }
+            }
 
             // Split command input into tokens while handling paths with spaces
             List<String> tokens = parseCommandInput(commandInput);
@@ -104,9 +117,23 @@ public class CommandLineInterpreter {
                     break;
             }
 
-            // Redirect output if ">" is specified; otherwise, print to console
+            // Redirect output if ">" or ">>" is specified; otherwise, print to console
             if (filePath != null) {
-                OutputRedirector.handleOutput(output, filePath);
+                if (input.contains(">>")) {
+                    // Handle appending to the file
+                    try {
+                        new AppendToFileOperator().appendToFile(filePath, output);
+                    } catch (IOException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                } else if (input.contains(">")) {
+                    // Handle overriding the file
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                        writer.write(output);
+                    } catch (IOException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                }
             } else {
                 System.out.print(output);
             }
