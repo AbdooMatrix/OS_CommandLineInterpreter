@@ -15,6 +15,7 @@ public class OutputRedirectorTest {
 
     // Sample output content for testing
     private final String sampleOutput = "This is a test output.";
+    private final String appendedOutput = "This is appended output.";
 
     // Clean up any files created during tests
     @AfterEach
@@ -26,9 +27,9 @@ public class OutputRedirectorTest {
     }
 
     @Test
-    public void testOutputRedirectionToFile() throws IOException {
-        // Redirect output to a file
-        OutputRedirector.handleOutput(sampleOutput, testOutputFile);
+    public void testRedirectOutputToFile() throws IOException {
+        // Redirect output to a file (overwrite)
+        OutputRedirector.redirectOutput(sampleOutput, testOutputFile);
 
         // Check that the file was created and contains the correct content
         File file = new File(testOutputFile);
@@ -40,9 +41,25 @@ public class OutputRedirectorTest {
     }
 
     @Test
+    public void testAppendOutputToFile() throws IOException {
+        // First, write initial content to the file
+        OutputRedirector.redirectOutput(sampleOutput, testOutputFile);
+
+        // Append output to the same file
+        OutputRedirector.appendOutput(appendedOutput, testOutputFile);
+
+        // Read the file content
+        String fileContent = new String(Files.readAllBytes(Paths.get(testOutputFile)));
+
+        // Check that the content is correctly appended
+        assertEquals(sampleOutput + System.lineSeparator() + appendedOutput, fileContent,
+                "File content should match the appended output.");
+    }
+
+    @Test
     public void testOutputRedirectionToNullFile() {
         // Test when the outputFile is null (nothing should happen)
-        OutputRedirector.handleOutput(sampleOutput, null);
+        OutputRedirector.redirectOutput(sampleOutput, null);
 
         // Check that no file is created
         File file = new File(testOutputFile);

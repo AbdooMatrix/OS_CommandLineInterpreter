@@ -1,25 +1,35 @@
 package org.os;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.File;
 
 public class OutputRedirector {
 
-    // Method to handle output redirection to a specified file
-    public static void handleOutput(String output, String outputFile) {
-        // Check if an output file is specified
+    // Method for handling '>' redirection (overwrite)
+    public static void redirectOutput(String output, String outputFile) {
         if (outputFile != null) {
-            // Try-with-resources to handle file writing and automatically close resources
             try (PrintWriter writer = new PrintWriter(new FileWriter(outputFile))) {
-                // Write the output to the specified file
-                writer.print(output);
-
-                // Print a confirmation message to the console
+                writer.print(output); // Overwrite the file with the new output
                 System.out.println("Output redirected to " + outputFile);
             } catch (IOException e) {
-                // Handle any IOExceptions that occur during file writing
                 System.out.println("Error: Unable to write to file " + outputFile);
+            }
+        }
+    }
+
+    // Method for handling '>>' redirection (append)
+    public static void appendOutput(String output, String outputFile) {
+        if (outputFile != null) {
+            File file = new File(outputFile);
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+                writer.write(output); // Append the output to the existing file
+                writer.newLine();
+                System.out.println("Output appended to " + outputFile);
+            } catch (IOException e) {
+                System.out.println("Error: Unable to append to file " + outputFile);
             }
         }
     }

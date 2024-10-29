@@ -1,11 +1,8 @@
-package org.os;
-
 import org.junit.jupiter.api.*;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.stream.Collectors;
+import org.os.LsCommand;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;

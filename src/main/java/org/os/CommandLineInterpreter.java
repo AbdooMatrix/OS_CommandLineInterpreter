@@ -1,14 +1,12 @@
 package org.os;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CommandLineInterpreter {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
@@ -24,11 +22,9 @@ public class CommandLineInterpreter {
             String commandInput = commandParts[0].trim(); // Command part
             String filePath = null;
 
-            // Check for output redirection using ">"
             if (commandParts.length > 1) {
                 filePath = commandParts[1].trim(); // Output file if redirected with ">>"
             } else {
-                // Check for single ">"
                 commandParts = input.split(">");
                 if (commandParts.length > 1) {
                     filePath = commandParts[1].trim(); // Output file if redirected with ">"
@@ -45,7 +41,8 @@ public class CommandLineInterpreter {
 
             switch (command) {
                 case "exit":
-                    System.out.println("Exiting CLI.");
+                    Exit exitCommand = new Exit(scanner, true); // Set shouldExit to true to allow exiting
+                    exitCommand.execute();
                     break loop;
 
                 case "help":
@@ -53,39 +50,15 @@ public class CommandLineInterpreter {
                     break;
 
                 case "ls":
-                    if (tokens.size() == 1) {
-                        output = LsCommand.listDirectory(currDir);
-                    } else if ("-a".equals(tokens.get(1))) {
-                        output = LsCommand.listAllFiles(tokens.size() > 2 ? tokens.get(2) : currDir);
-                    } else if ("-r".equals(tokens.get(1))) {
-                        output = LsCommand.listFilesReversed(tokens.size() > 2 ? tokens.get(2) : currDir);
-                    } else {
-                        output = LsCommand.listDirectory(tokens.size() == 2 ? tokens.get(1) : currDir);
-                    }
+                    output = handleLsCommand(tokens, currDir);
                     break;
 
                 case "rm":
-                    if (tokens.size() < 2) {
-                        output = "Error: 'rm' requires a path.\n";
-                    } else {
-                        String pathToDelete = tokens.get(1);
-                        output = new RmCommand().execute(pathToDelete);
-                    }
+                    output = handleRmCommand(tokens);
                     break;
 
                 case "mv":
-                    if (tokens.size() < 3) {
-                        output = "Error: 'mv' requires source and destination paths.\n";
-                    } else {
-                        String srcPath = tokens.get(1);
-                        String destPath = tokens.get(2);
-                        try {
-                            MoveCommand.getInstance().move(srcPath, destPath);
-                            output = "Moved successfully from (" + srcPath + ") to (" + destPath + ")\n";
-                        } catch (IOException e) {
-                            output = "Error: " + e.getMessage() + "\n";
-                        }
-                    }
+                    output = handleMvCommand(tokens);
                     break;
 
                 case "touch":
@@ -93,11 +66,7 @@ public class CommandLineInterpreter {
                     break;
 
                 case "cat":
-                    String[] filePaths = new String[tokens.size() - 1];
-                    for (int i = 1; i < tokens.size(); i++) {
-                        filePaths[i - 1] = tokens.get(i).trim();
-                    }
-                    output = new CatCommand().cat(filePaths);
+                    output = handleCatCommand(tokens);
                     break;
 
                 case "cd":
@@ -105,11 +74,7 @@ public class CommandLineInterpreter {
                     break;
 
                 case "mkdir":
-                    output = new Mkdir().execute(tokens.size() > 1 ? tokens.get(1) : currDir);
-                    break;
-
-                case "pipe":
-                    // Pipe command logic goes here if needed
+                    output = new MkdirCommand().execute(tokens.size() > 1 ? tokens.get(1) : currDir);
                     break;
 
                 default:
@@ -120,19 +85,9 @@ public class CommandLineInterpreter {
             // Redirect output if ">" or ">>" is specified; otherwise, print to console
             if (filePath != null) {
                 if (input.contains(">>")) {
-                    // Handle appending to the file
-                    try {
-                        new AppendToFileOperator().appendToFile(filePath, output);
-                    } catch (IOException e) {
-                        System.out.println("Error: " + e.getMessage());
-                    }
+                    OutputRedirector.appendOutput(output, filePath);
                 } else if (input.contains(">")) {
-                    // Handle overriding the file
-                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-                        writer.write(output);
-                    } catch (IOException e) {
-                        System.out.println("Error: " + e.getMessage());
-                    }
+                    OutputRedirector.redirectOutput(output, filePath);
                 }
             } else {
                 System.out.print(output);
@@ -142,7 +97,48 @@ public class CommandLineInterpreter {
         scanner.close();
     }
 
-    // Function to return help text
+    private static String handleLsCommand(List<String> tokens, String currDir) {
+        if (tokens.size() == 1) {
+            return LsCommand.listDirectory(currDir);
+        } else if ("-a".equals(tokens.get(1))) {
+            return LsCommand.listAllFiles(tokens.size() > 2 ? tokens.get(2) : currDir);
+        } else if ("-r".equals(tokens.get(1))) {
+            return LsCommand.listFilesReversed(tokens.size() > 2 ? tokens.get(2) : currDir);
+        } else {
+            return LsCommand.listDirectory(tokens.size() == 2 ? tokens.get(1) : currDir);
+        }
+    }
+
+    private static String handleRmCommand(List<String> tokens) {
+        if (tokens.size() < 2) {
+            return "Error: 'rm' requires a path.\n";
+        }
+        String pathToDelete = tokens.get(1);
+        return new RmCommand().execute(pathToDelete);
+    }
+
+    private static String handleMvCommand(List<String> tokens) {
+        if (tokens.size() < 3) {
+            return "Error: 'mv' requires source and destination paths.\n";
+        }
+        String srcPath = tokens.get(1);
+        String destPath = tokens.get(2);
+        try {
+            MoveCommand.getInstance().move(srcPath, destPath);
+            return "Moved successfully from (" + srcPath + ") to (" + destPath + ")\n";
+        } catch (IOException e) {
+            return "Error: " + e.getMessage() + "\n";
+        }
+    }
+
+    private static String handleCatCommand(List<String> tokens) {
+        String[] filePaths = new String[tokens.size() - 1];
+        for (int i = 1; i < tokens.size(); i++) {
+            filePaths[i - 1] = tokens.get(i).trim();
+        }
+        return new CatCommand().cat(filePaths);
+    }
+
     public static String getHelpText() {
         return """
                Available commands:
@@ -166,7 +162,7 @@ public class CommandLineInterpreter {
                - To create or update a file named 'example.txt': touch example.txt
                - To redirect output to a file: ls > output.txt
                - To move a file from directory to another : mv
-               - To remove a file or directory: rm D:\\New folder\\myfile.txt
+               - To remove a file or directory: rm D:\\New folder\\myFile.txt
                
                Type 'command > file.txt' to redirect any command's output to file.txt.
                """;
@@ -181,26 +177,21 @@ public class CommandLineInterpreter {
             char c = commandInput.charAt(i);
 
             if (c == '"') {
-                // Toggle the insideQuotes flag if we encounter a quote
                 insideQuotes = !insideQuotes;
             } else if (c == ' ' && !insideQuotes) {
-                // If we encounter a space and we're not inside quotes, finalize the current token
-                if (currentToken.length() > 0) {
+                if (!currentToken.isEmpty()) {
                     tokens.add(currentToken.toString());
-                    currentToken.setLength(0); // Reset the token
+                    currentToken.setLength(0);
                 }
             } else {
-                // Add characters to the current token
                 currentToken.append(c);
             }
         }
 
-        // Add the last token if it's non-empty
-        if (currentToken.length() > 0) {
+        if (!currentToken.isEmpty()) {
             tokens.add(currentToken.toString());
         }
 
         return tokens;
     }
-
 }

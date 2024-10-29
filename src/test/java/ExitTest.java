@@ -1,10 +1,8 @@
-package org.os;
-
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
+import org.os.Exit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,7 +12,6 @@ class ExitTest {
     void testExecute() {
         // Redirect output to capture it
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outputStream));
 
         // Create a real Scanner object
