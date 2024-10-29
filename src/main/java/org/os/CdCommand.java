@@ -2,7 +2,7 @@ package org.os;
 
 import java.io.File;
 
-public class cdCommand {
+public class CdCommand {
     static String cw = System.getProperty("user.dir");
 
     public static String cd(String path) {

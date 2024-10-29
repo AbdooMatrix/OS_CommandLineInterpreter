@@ -29,8 +29,8 @@ public class PipeCommand {
                     result = ((RmCommand) cmd).execute(arg);
                 } else if (cmd instanceof MkdirCommand) {
                     result = ((MkdirCommand) cmd).execute(arg);
-                } else if (cmd instanceof cdCommand) {
-                    result = cdCommand.cd(arg);
+                } else if (cmd instanceof CdCommand) {
+                    result = CdCommand.cd(arg);
                 } else if (cmd instanceof CatCommand) {
                     result = ((CatCommand) cmd).cat(arg != null ? arg.split(" ") : new String[]{});
                 } else if (cmd instanceof MoveCommand) {
@@ -74,7 +74,7 @@ public class PipeCommand {
             case "rm":
                 return new RmCommand();
             case "cd":
-                return new cdCommand();
+                return new CdCommand();
             case "cat":
                 return new CatCommand();
             case "mv":

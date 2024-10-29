@@ -70,7 +70,7 @@ public class CommandLineInterpreter {
                     break;
 
                 case "cd":
-                    currDir = cdCommand.cd(tokens.size() > 1 ? tokens.get(1) : currDir);
+                    currDir = CdCommand.cd(tokens.size() > 1 ? tokens.get(1) : currDir);
                     break;
 
                 case "mkdir":
