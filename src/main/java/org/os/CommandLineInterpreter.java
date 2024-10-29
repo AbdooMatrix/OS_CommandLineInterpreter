@@ -10,7 +10,7 @@ public class CommandLineInterpreter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
-        String currDir = new PWDCommand().pwd();
+        String currDir = PWDCommand.getInstance().getCurrentDirec();
 
         loop:
         while (true) {
@@ -26,10 +26,6 @@ public class CommandLineInterpreter {
             List<String> tokens = parseCommandInput(commandInput);
 
             if (tokens.isEmpty()) continue;
-
-            for (String token : tokens) {
-                System.out.println(token + "\n");
-            }
 
             String command = tokens.get(0);
             String output = "";
@@ -70,8 +66,12 @@ public class CommandLineInterpreter {
                     } else {
                         String srcPath = tokens.get(1);
                         String destPath = tokens.get(2);
-                        MoveCommand mv = new MoveCommand();
-                        mv.move(srcPath, destPath);
+                        try {
+                            MoveCommand.getInstance().move(srcPath, destPath);
+                            output = "Moved successfully from (" + srcPath + ") to (" + destPath + ")\n";
+                        } catch (IOException e) {
+                            output = "Error: " + e.getMessage() + "\n";
+                        }
                     }
                     break;
 
@@ -154,27 +154,21 @@ public class CommandLineInterpreter {
             char c = commandInput.charAt(i);
 
             if (c == '"') {
-                // Toggle the insideQuotes flag when encountering double quotes
+                // Toggle the insideQuotes flag if we encounter a quote
                 insideQuotes = !insideQuotes;
-
-                // If exiting a quoted section, add the token
-                if (!insideQuotes && currentToken.length() > 0) {
-                    tokens.add(currentToken.toString());
-                    currentToken.setLength(0);
-                }
             } else if (c == ' ' && !insideQuotes) {
-                // Add token if it's not inside quotes and there's a space
+                // If we encounter a space and we're not inside quotes, finalize the current token
                 if (currentToken.length() > 0) {
                     tokens.add(currentToken.toString());
-                    currentToken.setLength(0);
+                    currentToken.setLength(0); // Reset the token
                 }
             } else {
-                // Accumulate characters for tokens inside or outside quotes
+                // Add characters to the current token
                 currentToken.append(c);
             }
         }
 
-        // Add any remaining token after the loop
+        // Add the last token if it's non-empty
         if (currentToken.length() > 0) {
             tokens.add(currentToken.toString());
         }

@@ -12,7 +12,39 @@ import java.nio.file.StandardCopyOption;
 // C:\Users\\username\\Desktop\\example.txt (on Windows).
 // but in java \ is an escape character so we need  \\ instead of \
 
+
+
+
+
 public class MoveCommand {
+
+    // applying singleton design pattern.
+
+    // Step 2: Create a private static instance of the class
+    private static MoveCommand instance ;
+
+
+    // Step 1: Make the constructor private
+    private MoveCommand(){}
+
+
+    // Step 3: Provide a public static method for getting the instance
+    public static MoveCommand getInstance() {
+
+        // Check if the instance is null (not yet created)
+        if (instance == null) {
+
+            // If null, create a new instance of MoveCommand
+            instance = new MoveCommand();
+        }
+
+        // Return the existing or newly created instance
+        return instance;
+    }
+
+
+
+    // the move method is the same
     public void move(String sourcePath, String destinationPath) throws IOException {
         File source = new File(sourcePath);
         File destination = new File(destinationPath);

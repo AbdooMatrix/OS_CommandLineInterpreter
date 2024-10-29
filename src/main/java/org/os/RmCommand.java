@@ -6,11 +6,7 @@ public class RmCommand {
     static String cw = System.getProperty("user.dir");
 
     public String execute(String path) {
-        // Check if the path is absolute or relative
-        File file = new File(path);
-        if (!file.isAbsolute()) {
-            file = new File(cw, path); // Convert relative path to absolute path based on `cw`
-        }
+        File file = new File(cw, path);
 
         if (!file.exists()) {
             System.out.println("not exist: " + file.getAbsolutePath());

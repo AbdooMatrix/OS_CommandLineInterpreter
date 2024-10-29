@@ -40,13 +40,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class MoveCommandTest {
-    private MoveCommand command;
+    private MoveCommand mv;
     private File sourceFile;
     private File destinationFile;
 
     @BeforeEach
     void setUp() throws IOException {
-        command = new MoveCommand();
+        mv = MoveCommand.getInstance() ;
 
         // Initialize the files and directories with absolute paths
         sourceFile = new File("test1.txt");
@@ -75,7 +75,7 @@ class MoveCommandTest {
     @Test
     void testMoveFileSuccessfully() throws IOException {
         // Move the file
-        command.move(sourceFile.toPath().toString(), destinationFile.toPath().toString());
+        mv.move(sourceFile.toPath().toString(), destinationFile.toPath().toString());
 
         // Verify that the source file no longer exists and the destination file exists
         assertFalse(sourceFile.exists(), "Source file should not exist after move");
@@ -88,7 +88,7 @@ class MoveCommandTest {
         // Attempt to move a non-existent file and expect an IOException
         File nonExistentFile = new File("nonExistentFile.txt");
         IOException exception = assertThrows(IOException.class, () ->
-                command.move(nonExistentFile.getPath(), "someDestination.txt"));
+                mv.move(nonExistentFile.getPath(), "someDestination.txt"));
 
         assertEquals("Source file or directory doesn't exist", exception.getMessage());
     }
