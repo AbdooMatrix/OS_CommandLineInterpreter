@@ -8,12 +8,12 @@ public class CommandLineInterpreter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
-        String currDirec = new PWDCommand().pwd();
+        String currDir = new PWDCommand().pwd();
 
-        label:
+        loop:
         while (true) {
             // Always printing the current working directory.
-            System.out.print(currDirec + " --> ");
+            System.out.print(currDir + " --> ");
             String input = scanner.nextLine().trim();
 
             // Check for output redirection
@@ -31,32 +31,37 @@ public class CommandLineInterpreter {
             switch (command) {
                 case "exit":
                     System.out.println("Exiting CLI.");
-                    break label;
+                    break loop;
+
                 case "help":
                     output = getHelpText();
                     break;
+
                 case "ls":
                     // Handle "ls" commands with options
                     if (tokens.length == 1) {
-                        output = LsCommand.listDirectory(currDirec);
+                        output = LsCommand.listDirectory(currDir);
                     } else if ("-a".equals(tokens[1])) {
-                        output = LsCommand.listAllFiles(tokens.length > 2 ? tokens[2] : currDirec);
+                        output = LsCommand.listAllFiles(tokens.length > 2 ? tokens[2] : currDir);
                     } else if ("-r".equals(tokens[1])) {
-                        output = LsCommand.listFilesReversed(tokens.length > 2 ? tokens[2] : currDirec);
+                        output = LsCommand.listFilesReversed(tokens.length > 2 ? tokens[2] : currDir);
                     } else if (tokens.length == 2) {
                         output = LsCommand.listDirectory(tokens[1]);
                     } else {
                         output = "Error: Unsupported 'ls' option. Supported options: '-a' (all files), '-r' (reverse order).\n";
                     }
                     break;
+
                 case "mv":
                     String srcPath = tokens[1], destPath = tokens[2];
                     MoveCommand mv = new MoveCommand();
                     mv.move(srcPath, destPath);
                     break;
+
                 case "touch":
                     output = new TouchCommand().createOrUpdateFile(tokens.length > 1 ? tokens[1] : null);
                     break;
+
                 case "cat":
                     String[] filePaths = new String[tokens.length - 1];
                     for (int i = 1; i < tokens.length; i++) {
@@ -64,12 +69,15 @@ public class CommandLineInterpreter {
                     }
                     output = new CatCommand().cat(filePaths);
                     break;
+
                 case "cd":
-                    currDirec = new cdCommand().cd(tokens.length > 1 ? tokens[1] : null);
+                    currDir = cdCommand.cd(tokens.length > 1 ? tokens[1] : currDir);
                     break;
+
                 case "mkdir":
-                    output = new Mkdir().execute(tokens.length > 1 ? tokens[1] : currDirec);
+                    output = new Mkdir().execute(tokens.length > 1 ? tokens[1] : currDir);
                     break;
+
                 case "pipe":
                     StringBuilder commandline = null;
                     for (int i = 1; i < tokens.length; i++) {
@@ -77,6 +85,7 @@ public class CommandLineInterpreter {
                     }
                     PipeCommand pipe = new PipeCommand();
                     break;
+
                 case null:
                 default:
                     output = "Error: Command not recognized. Type 'help' for a list of commands.\n";
