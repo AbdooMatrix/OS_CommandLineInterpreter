@@ -1,42 +1,55 @@
 package org.os;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class LsCommand {
-    // Lists the contents of the current directory, returning as a single String
-    public static String ls() {
-        String currentDirectory = System.getProperty("user.dir");
-        return listDirectoryContentsAsString(Paths.get(currentDirectory));
+
+    // Standard ls command: lists the contents of a directory (excluding hidden files)
+    public static String listDirectory(String directoryPath) {
+        return listDirectoryContentsAsString(Paths.get(directoryPath), false, false);
     }
 
-    // Lists the contents of a specified directory, returning as a single String
-    public static String ls(String directoryPath) {
-        Path path = Paths.get(directoryPath);
-        return listDirectoryContentsAsString(path);
+    // ls -a command: lists all files and directories including hidden ones
+    public static String listAllFiles(String directoryPath) {
+        return listDirectoryContentsAsString(Paths.get(directoryPath), true, false);
     }
 
-    // Helper method to list contents and return as a single String
-    private static String listDirectoryContentsAsString(Path path) {
+    // ls -r command: lists files and directories in reverse order
+    public static String listFilesReversed(String directoryPath) {
+        return listDirectoryContentsAsString(Paths.get(directoryPath), false, true);
+    }
+
+    // Core method to list contents based on specified flags for hidden and reverse
+    private static String listDirectoryContentsAsString(Path path, boolean includeHidden, boolean reverseOrder) {
         try {
-            return Files.list(path)
-                    .filter(p -> {
-                        try {
-                            return !Files.isHidden(p); // Exclude hidden files using Files.isHidden
-                        } catch (IOException e) {
-                            System.out.println("Error checking hidden status: " + e.getMessage());
-                            return true; // Include file if hidden status cannot be determined
-                        }
-                    })
-                    .sorted((path1, path2) -> path1.getFileName().toString().compareToIgnoreCase(path2.getFileName().toString()))
-                    .map(p -> p.getFileName().toString())  // Map to file name only
-                    .collect(Collectors.joining("\n")); // Join as a single string with new lines
+            List<Path> files = Files.list(path)
+                    .filter(p -> includeHidden || !isHidden(p)) // Exclude hidden files if includeHidden is false
+                    .sorted((path1, path2) -> reverseOrder ? path2.getFileName().toString().compareToIgnoreCase(path1.getFileName().toString())
+                            : path1.getFileName().toString().compareToIgnoreCase(path2.getFileName().toString()))
+                    .collect(Collectors.toList());
+
+            return files.stream()
+                    .map(p -> p.getFileName().toString())
+                    .collect(Collectors.joining("\n"));
         } catch (IOException e) {
-            System.out.println("Error listing directory contents: " + e.getMessage());
-            return "";
+            System.err.println("Error listing directory contents: " + e.getMessage());
+            return "Error listing directory contents.";
+        }
+    }
+
+    // Helper method to check if a file is hidden
+    private static boolean isHidden(Path path) {
+        try {
+            return Files.isHidden(path);
+        } catch (IOException e) {
+            System.out.println("Error checking hidden status: " + e.getMessage());
+            return false; // Assume not hidden if status cannot be determined
         }
     }
 }
