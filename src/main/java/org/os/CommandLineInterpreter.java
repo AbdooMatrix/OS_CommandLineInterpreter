@@ -17,6 +17,12 @@ public class CommandLineInterpreter {
             System.out.print(currDir + " --> ");
             String input = scanner.nextLine().trim();
 
+            // Check if input contains a pipe and handle accordingly
+            if (input.contains("|")) {
+                PipeCommand.runPipe(input); // Run pipe command processing
+                continue;
+            }
+
             // Split command input based on ">>" first, then ">" to handle both cases
             String[] commandParts = input.split(">>");
             String commandInput = commandParts[0].trim(); // Command part
