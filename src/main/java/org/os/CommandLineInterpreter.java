@@ -63,6 +63,10 @@ public class CommandLineInterpreter {
                     output = handleRmCommand(tokens);
                     break;
 
+                case "rmdir": // Add this case for rmdir
+                    output = handleRmdirCommand(tokens);
+                    break;
+
                 case "mv":
                     output = handleMvCommand(tokens);
                     break;
@@ -121,6 +125,14 @@ public class CommandLineInterpreter {
         }
         String pathToDelete = tokens.get(1);
         return new RmCommand().execute(pathToDelete);
+    }
+
+    private static String handleRmdirCommand(List<String> tokens) {
+        if (tokens.size() < 2) {
+            return "Error: 'rmdir' requires a directory path.\n";
+        }
+        String dirPathToDelete = tokens.get(1);
+        return new RmdirCommand().rmdir(dirPathToDelete);
     }
 
     private static String handleMvCommand(List<String> tokens) {
