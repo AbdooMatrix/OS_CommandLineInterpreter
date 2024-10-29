@@ -7,8 +7,10 @@
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="aaa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/LsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/LsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/cdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/cdCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/ExitCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/HelpText.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/Mkdir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/Mkdir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/PipeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/PipeCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +58,7 @@
     "Application.cd.executor": "Run",
     "JUnit.LsACommandTest.executor": "Run",
     "JUnit.LsACommandTest.testEmptyDirectory.executor": "Run",
+    "JUnit.LsACommandTest.testListAllFiles_NullPath.executor": "Run",
     "JUnit.LsRCommandTest.executor": "Run",
     "JUnit.MoveCommandTest.executor": "Run",
     "JUnit.OutputRedirectorTest.executor": "Run",

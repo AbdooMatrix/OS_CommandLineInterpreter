@@ -5,8 +5,8 @@ import java.io.File;
 public class Mkdir {
     static String cw = System.getProperty("user.dir");
 
-    public String execute(String name) {
-        File dir = new File(cw, name);
+    public String execute(String path) {
+        File dir = new File(path);
         if (!dir.exists()) {
             try {
                 boolean res = dir.mkdir();

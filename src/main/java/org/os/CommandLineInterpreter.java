@@ -30,9 +30,11 @@ public class CommandLineInterpreter {
             if ("exit".equals(command)) {
                 System.out.println("Exiting CLI.");
                 break;
-            } else if ("help".equals(command)) {
-                output = HelpText.getHelpText();
-            } else if ("ls".equals(command)) {
+            }
+            else if ("help".equals(command)) {
+                output = getHelpText();
+            }
+            else if ("ls".equals(command)) {
                 // Handle "ls" commands with options
                 if (tokens.length == 1) {
                     output = LsCommand.listDirectory(currDirec);
@@ -45,21 +47,36 @@ public class CommandLineInterpreter {
                 } else {
                     output = "Error: Unsupported 'ls' option. Supported options: '-a' (all files), '-r' (reverse order).\n";
                 }
-            } else if ("mv".equals(command)) {
+            }
+            else if ("mv".equals(command)) {
                 String srcPath = tokens[1], destPath = tokens[2];
                 MoveCommand mv = new MoveCommand();
                 mv.move(srcPath, destPath);
-            } else if ("touch".equals(command)) {
+            }
+            else if ("touch".equals(command)) {
                 output = new TouchCommand().createOrUpdateFile(tokens.length > 1 ? tokens[1] : null);
-            } else if ("cat".equals(command)) {
+            }
+            else if ("cat".equals(command)) {
                 String[] filePaths = new String[tokens.length - 1];
                 for (int i = 1; i < tokens.length; i++) {
                     filePaths[i - 1] = tokens[i].trim();
                 }
                 output = new CatCommand().cat(filePaths);
-            } else if ("cd".equals(command)) {
+            }
+            else if ("cd".equals(command)) {
                 currDirec = new cdCommand().cd(tokens.length > 1 ? tokens[1] : null);
-            } else {
+            }
+            else if ("mkdir".equals(command)) {
+                output = new Mkdir().execute(tokens.length > 1 ? tokens[1] : currDirec);
+            }
+            else if ("pipe".equals(command)) {
+                StringBuilder commandline = null;
+                for (int i = 1; i < tokens.length; i++) {
+                    commandline.append(tokens[i]).append(" | ");
+                }
+                PipeCommand pipe = new PipeCommand();
+            }
+            else {
                 output = "Error: Command not recognized. Type 'help' for a list of commands.\n";
             }
 
@@ -72,5 +89,27 @@ public class CommandLineInterpreter {
         }
 
         scanner.close();
+    }
+
+    // Function to return help text
+    public static String getHelpText() {
+        return """
+               Available commands:
+               - help: Displays this help message.
+               - exit: Exits the CLI.
+               - ls [path]: Lists files in the specified directory (default is current directory).
+               - ls -a [path]: Lists all files, including hidden ones, in the specified directory.
+               - ls -r [path]: Lists files in reverse order in the specified directory.
+               - touch <file>: Creates a new file or updates the timestamp of an existing file.
+               - mv [sourcePath] [destinationPath]: move a file from a specific directory to another.
+               
+               Usage:
+               - To list all files in the current directory: ls
+               - To create or update a file named 'example.txt': touch example.txt
+               - To redirect output to a file: ls > output.txt
+               - To move a file from directory to another : mv
+               
+               Type 'command > file.txt' to redirect any command's output to file.txt.
+               """;
     }
 }
