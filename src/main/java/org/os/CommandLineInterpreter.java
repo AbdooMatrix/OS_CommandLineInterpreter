@@ -141,32 +141,52 @@ public class CommandLineInterpreter {
 
     public static String getHelpText() {
         return """
-               Available commands:
-               - help: Displays this help message.
-               - exit: Exits the CLI.
-               - ls [path]: Lists files in the specified directory (default is current directory).
-               - ls -a [path]: Lists all files, including hidden ones, in the specified directory.
-               - ls -r [path]: Lists files in reverse order in the specified directory.
-               - touch <file>: Creates a new file or updates the timestamp of an existing file.
-               - mv [sourcePath] [destinationPath]: move a file from a specific directory to another.
-               - rm <file_path>: Removes a file or directory.
-               - cat <file_path(s)>: Concatenates and displays content of files.
-               - cd <directory>: Changes the current directory.
-               - mkdir <directory>: Creates a new directory.
-               - pipe <command>: Pipes the output of one command to another.
-               - append <file> <text>: Appends text to a specified file.
-               - rmdir <directory>: Removes an empty directory.
-               
-               Usage:
-               - To list all files in the current directory: ls
-               - To create or update a file named 'example.txt': touch example.txt
-               - To redirect output to a file: ls > output.txt
-               - To move a file from directory to another : mv
-               - To remove a file or directory: rm D:\\New folder\\myFile.txt
-               
-               Type 'command > file.txt' to redirect any command's output to file.txt.
-               """;
+       Available commands:
+       - help: Displays this help message.
+           Example: help
+       
+       - exit: Exits the CLI.
+           Example: exit
+       
+       - ls [path]: Lists files in the specified directory (default is current directory).
+           Example: ls
+                    ls D:\\Folder
+
+       - ls -a [path]: Lists all files, including hidden ones, in the specified directory.
+           Example: ls -a
+                    ls -a D:\\Folder
+
+       - ls -r [path]: Lists files in reverse order in the specified directory.
+           Example: ls -r
+                    ls -r D:\\Folder
+
+       - touch <file>: Creates a new file or updates the timestamp of an existing file.
+           Example: touch newFile.txt
+
+       - mv [sourcePath] [destinationPath]: Moves a file from one directory to another.
+           Example: mv D:\\Folder\\file.txt D:\\NewFolder
+
+       - rm <file_path>: Removes a file or directory.
+           Example: rm D:\\Folder\\file.txt
+
+       - cat <file_path(s)>: Concatenates and displays the content of files.
+           Example: cat file1.txt file2.txt
+
+       - cd <directory>: Changes the current directory.
+           Example: cd D:\\Folder
+
+       - mkdir <directory>: Creates a new directory.
+           Example: mkdir newFolder
+       
+       Redirection Operators:
+       - [command] > [file]: Redirects command output to a file, overwriting existing content.
+           Example: ls > output.txt
+
+       - [command] >> [file]: Appends command output to a file without overwriting.
+           Example: ls >> output.txt
+       """;
     }
+
 
     private static List<String> parseCommandInput(String commandInput) {
         List<String> tokens = new ArrayList<>();
