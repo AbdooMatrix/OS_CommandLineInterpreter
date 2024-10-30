@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class PipeCommand {
 
-    public static void runPipe(String commandLine) {
+    public static String runPipe(String commandLine) {
         String[] commands = commandLine.split("\\|");
         String output = null;
 
@@ -19,6 +19,9 @@ public class PipeCommand {
             }
 
             if (i > 0 && output != null) {
+                if (output.startsWith("Directory created at:")) {
+                    output = output.replace("Directory created at: ", "").trim();
+                }
                 arg = output;
             }
 
@@ -45,7 +48,7 @@ public class PipeCommand {
                     result = ((TouchCommand) cmd).createOrUpdateFile(arg);
                 } else if (cmd instanceof RmdirCommand) {
                     result = ((RmdirCommand) cmd).rmdir(arg);
-                } else if (cmd instanceof LsCommand) { 
+                } else if (cmd instanceof LsCommand) {
                     if (arg == null) {
                         result = LsCommand.listDirectory(".");
                     } else if (arg.equals("-a")) {
@@ -65,6 +68,7 @@ public class PipeCommand {
             }
             output = result;
         }
+        return output;
     }
 
     private static Object getCommand(String command) {
@@ -92,6 +96,10 @@ public class PipeCommand {
         }
     }
 }
+
+
+
+
 
 
 
