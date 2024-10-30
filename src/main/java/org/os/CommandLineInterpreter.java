@@ -1,5 +1,4 @@
 package org.os;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -154,7 +153,8 @@ public class CommandLineInterpreter {
             return "Error: 'mv' requires source and destination paths.\n";
         }
         try {
-            MoveCommand.getInstance().move(tokens.get(1), tokens.get(2));
+            MoveCommand mv = MoveCommand.getInstance() ;
+            mv.move(tokens.get(1), tokens.get(2)); // 1--> source path 2 --> destination path.
             return "Moved successfully from (" + tokens.get(1) + ") to (" + tokens.get(2) + ")\n";
         } catch (IOException e) {
             return "Error executing mv command: " + e.getMessage() + "\n";

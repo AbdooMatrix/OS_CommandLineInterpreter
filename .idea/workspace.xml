@@ -6,19 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CatCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CatCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CdCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/HelpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/LsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/LsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/MkdirCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/MkdirCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/os/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/MoveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/OutputRedirector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/OutputRedirector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/PWDCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/PWDCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/PipeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/PipeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/RmCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/RmCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/RmdirCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/RmdirCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/TouchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/TouchCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +36,12 @@
     &quot;assignee&quot;: &quot;AbdooMatrix&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AbdooMatrix/OS_CommandLineInterpreter",
-    "accountId": "e96b52e1-c3aa-4064-9dd5-782855f6f5d2"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AbdooMatrix/OS_CommandLineInterpreter.git&quot;,
+    &quot;accountId&quot;: &quot;c2145786-3b09-4fec-a091-498ab5b33c5c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -101,7 +90,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -171,10 +160,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CdCommandTest" />
         <item itemvalue="JUnit.MkdirCommandTest (1)" />
         <item itemvalue="JUnit.RmCommandTest" />
         <item itemvalue="JUnit.MkdirCommandTest" />
-        <item itemvalue="JUnit.CdCommandTest" />
         <item itemvalue="JUnit.HelpCommandTest" />
       </list>
     </recent_temporary>
@@ -212,6 +201,8 @@
       <workItem from="1730224363387" duration="166000" />
       <workItem from="1730233317665" duration="852000" />
       <workItem from="1730311189362" duration="3505000" />
+      <workItem from="1730315317863" duration="172000" />
+      <workItem from="1730315517022" duration="2407000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />

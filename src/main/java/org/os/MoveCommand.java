@@ -47,7 +47,6 @@ public class MoveCommand {
         // Move the source file/directory to the destination
         try {
             Files.move(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("Moved successfully from (" + sourcePath + ") to (" + destinationPath + ")");
         } catch (IOException e) {
             throw new IOException("Error moving file/directory from " + sourcePath + " to " + destinationPath + ": " + e.getMessage());
         }
