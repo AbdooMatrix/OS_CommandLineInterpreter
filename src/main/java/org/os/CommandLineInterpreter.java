@@ -48,7 +48,7 @@ public class CommandLineInterpreter {
 
             switch (command) {
                 case "exit":
-                    Exit exitCommand = new Exit(scanner, true); // Set shouldExit to true to allow exiting
+                    ExitCommand exitCommand = new ExitCommand(scanner, true); // Set shouldExit to true to allow exiting
                     exitCommand.execute();
                     break loop;
 
