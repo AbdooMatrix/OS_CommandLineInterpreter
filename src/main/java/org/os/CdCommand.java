@@ -1,10 +1,11 @@
 package org.os;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 public class CdCommand {
 
-    public static String cw;
+    public static String cw = String.valueOf(Paths.get(System.getProperty("user.dir")));
 
 
     public static String cd(String path) {

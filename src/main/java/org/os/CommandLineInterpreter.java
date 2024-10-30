@@ -87,7 +87,7 @@ public class CommandLineInterpreter {
 
                     case "cd":
                         currDir = CdCommand.cd(tokens.size() > 1 ? tokens.get(1) : currDir);
-                        break;
+                        continue loop;
 
                     case "mkdir":
                         output = new MkdirCommand().execute(tokens.size() > 1 ? tokens.get(1) : currDir);
