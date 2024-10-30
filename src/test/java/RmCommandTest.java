@@ -1,5 +1,6 @@
 package org.os;
 
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,14 +12,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RmCommandTest {
     private RmCommand rmCommand;
+    private String testDirPath;
+    private String testFilePath;
 
     @BeforeEach
     public void setUp() {
         rmCommand = new RmCommand();
-        // Create a test directory and file for testing
-        new File("testDir").mkdir();
+
+        testDirPath = new File("testDir").getAbsolutePath();
+        testFilePath = new File(testDirPath, "testFile.txt").getAbsolutePath();
+
+        new File(testDirPath).mkdir(); // Create test directory
         try {
-            new File("testDir/testFile.txt").createNewFile();
+            new File(testFilePath).createNewFile(); // Create test file
         } catch (IOException e) {
             e.printStackTrace(); // Handle exception appropriately
         }
@@ -27,19 +33,23 @@ public class RmCommandTest {
     @AfterEach
     public void tearDown() {
         // Clean up the test directory and files after each test
-        rmCommand.execute("testDir/testFile.txt");
-        rmCommand.execute("testDir");
+        if (new File(testFilePath).exists()) {
+            rmCommand.execute(testFilePath); // Delete test file
+        }
+        if (new File(testDirPath).exists()) {
+            rmCommand.execute(testDirPath); // Delete test directory
+        }
     }
 
     @Test
     public void testDeleteFile() {
-        String result = rmCommand.execute("testDir/testFile.txt");
+        String result = rmCommand.execute(testFilePath);
         assertEquals("deleted successfully.", result);
     }
 
     @Test
     public void testDeleteDirectory() {
-        String result = rmCommand.execute("testDir");
+        String result = rmCommand.execute(testDirPath);
         assertEquals("deleted successfully.", result);
     }
 
