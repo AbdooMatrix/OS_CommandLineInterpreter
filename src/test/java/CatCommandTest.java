@@ -6,6 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+////I am testing four cases:
+////(1) gives me a pathes and should I go to open the files in this pathes.
+////(2) gives me the names of the files only,So I display the content of the files in current path .
+////(3) gives me the name of a specific file without the extension .
+////(4) gives me an empty file and a full one.
 class CatCommandTest {
     private Path tempDir;
     private Path tempFile1;
