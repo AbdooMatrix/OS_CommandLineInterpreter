@@ -3,7 +3,7 @@ package org.os;
 import java.io.File;
 
 public class RmCommand {
-   // static String cw = System.getProperty("user.dir");
+    //static String cw = System.getProperty("user.dir");
 
     public String execute(String path) {
         File file = new File( path);
