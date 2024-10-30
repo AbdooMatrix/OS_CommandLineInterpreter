@@ -1,9 +1,7 @@
 package org.os;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.PrintWriter;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PipeCommandTest {
-    private final String testDirPath = "testDir";
+    private  String testDirPath ;
 
     @BeforeEach
     public void setUp() {
-        // Create a temporary test directory before each test
+        testDirPath = new File("testDir").getAbsolutePath();
         File testDir = new File(testDirPath);
         if (!testDir.exists()) {
-            testDir.mkdir();
+            testDir.mkdir(); // Create the test directory
         }
     }
 
@@ -48,7 +46,7 @@ public class PipeCommandTest {
 
     @Test
     void testRunPipeWithTouchAndCat() throws IOException {
-        
+
         String testFilePath = "testDir/testFilePipe.txt";
 
         // Use the touch command to create or update the file
