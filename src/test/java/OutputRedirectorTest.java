@@ -52,7 +52,7 @@ public class OutputRedirectorTest {
         String fileContent = new String(Files.readAllBytes(Paths.get(testOutputFile)));
 
         // Check that the content is correctly appended
-        assertEquals(sampleOutput + System.lineSeparator() + appendedOutput, fileContent,
+        assertEquals(sampleOutput + appendedOutput, fileContent,
                 "File content should match the appended output.");
     }
 

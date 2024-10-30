@@ -25,8 +25,7 @@ public class OutputRedirector {
         if (outputFile != null) {
             File file = new File(outputFile);
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
-                writer.write(output); // Append the output to the existing file
-                writer.newLine();
+                writer.write(output); // Append the output to the existing file without newline
                 System.out.println("Output appended to " + outputFile);
             } catch (IOException e) {
                 System.out.println("Error: Unable to append to file " + outputFile);
