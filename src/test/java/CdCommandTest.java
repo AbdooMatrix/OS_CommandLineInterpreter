@@ -11,8 +11,7 @@ public class CdCommandTest {
 
     @BeforeEach
     void setUp() {
-        // Set the initial working directory to a known test directory
-        CdCommand.cw = "C:\\Users\\Ts\\IdeaProjects\\os1"; // Change this to your desired starting path
+        CdCommand.cw = System.getProperty("user.dir");
     }
 
     @Test
