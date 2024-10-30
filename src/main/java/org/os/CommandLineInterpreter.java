@@ -1,4 +1,5 @@
 package org.os;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class CommandLineInterpreter {
             System.out.print(currDir + " --> ");
             String input = scanner.nextLine().trim();
 
+            // Handle pipe commands
             if (input.contains("|")) {
                 try {
                     PipeCommand.runPipe(input);
@@ -26,22 +28,25 @@ public class CommandLineInterpreter {
                 continue;
             }
 
+            // Split the input by redirection operators ">>" or ">"
             String[] commandParts = input.split(">>");
             String commandInput = commandParts[0].trim();
-            String filePath = null;
+            List<String> filePathTokens = null;
 
             if (commandParts.length > 1) {
-                filePath = commandParts[1].trim();
+                filePathTokens = parseCommandInput(commandParts[1].trim());
             } else {
                 commandParts = input.split(">");
                 if (commandParts.length > 1) {
-                    filePath = commandParts[1].trim();
+                    filePathTokens = parseCommandInput(commandParts[1].trim());
                 }
             }
 
+            // Parse command input and get command tokens
             List<String> tokens = parseCommandInput(commandInput);
             if (tokens.isEmpty()) continue;
 
+            // Get the command and prepare for execution
             String command = tokens.get(0);
             String output = "";
 
@@ -96,11 +101,13 @@ public class CommandLineInterpreter {
                 output = "An error occurred while executing the command: " + e.getMessage() + "\n";
             }
 
-            if (filePath != null) {
+            // Handle output redirection if filePathTokens is present
+            if (filePathTokens != null && !filePathTokens.isEmpty()) {
+                String parsedFilePath = filePathTokens.get(0); // First token is the file path
                 if (input.contains(">>")) {
-                    OutputRedirector.appendOutput(output, filePath);
+                    OutputRedirector.appendOutput(output, parsedFilePath);
                 } else if (input.contains(">")) {
-                    OutputRedirector.redirectOutput(output, filePath);
+                    OutputRedirector.redirectOutput(output, parsedFilePath);
                 }
             } else {
                 System.out.print(output);
@@ -153,7 +160,7 @@ public class CommandLineInterpreter {
             return "Error: 'mv' requires source and destination paths.\n";
         }
         try {
-            MoveCommand mv = MoveCommand.getInstance() ;
+            MoveCommand mv = MoveCommand.getInstance();
             mv.move(tokens.get(1), tokens.get(2)); // 1--> source path 2 --> destination path.
             return "Moved successfully from (" + tokens.get(1) + ") to (" + tokens.get(2) + ")\n";
         } catch (IOException e) {

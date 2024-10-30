@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/CommandLineInterpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/os/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/os/MoveCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +36,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/AbdooMatrix/OS_CommandLineInterpreter.git&quot;,
-    &quot;accountId&quot;: &quot;c2145786-3b09-4fec-a091-498ab5b33c5c&quot;
+    &quot;url&quot;: &quot;https://github.com/AbdooMatrix/OS_CommandLineInterpreter&quot;,
+    &quot;accountId&quot;: &quot;e96b52e1-c3aa-4064-9dd5-782855f6f5d2&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -54,46 +52,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CommandLineInterpreter.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.cd.executor": "Run",
-    "JUnit.CatCommandTest.executor": "Run",
-    "JUnit.CdCommandTest.executor": "Run",
-    "JUnit.HelpCommandTest.executor": "Run",
-    "JUnit.LsACommandTest.executor": "Run",
-    "JUnit.LsACommandTest.testEmptyDirectory.executor": "Run",
-    "JUnit.LsACommandTest.testListAllFiles_NullPath.executor": "Run",
-    "JUnit.LsCommandTest.executor": "Run",
-    "JUnit.LsRCommandTest.executor": "Run",
-    "JUnit.MkdirCommandTest (1).executor": "Run",
-    "JUnit.MkdirCommandTest.executor": "Run",
-    "JUnit.MoveCommandTest.executor": "Run",
-    "JUnit.OutputRedirectorTest.executor": "Run",
-    "JUnit.RmCommandTest.executor": "Run",
-    "JUnit.RmdirCommandTest (1).executor": "Run",
-    "JUnit.RmdirCommandTest.executor": "Run",
-    "JUnit.TouchCommandTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CommandLineInterpreter.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.cd.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CatCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CdCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HelpCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LsACommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LsACommandTest.testEmptyDirectory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LsACommandTest.testListAllFiles_NullPath.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LsCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LsRCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MkdirCommandTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MkdirCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MoveCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OutputRedirectorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RmCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RmdirCommandTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RmdirCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TouchCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/abdom/IdeaProjects/OS_Ass1/src/main/java/org/os/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="CdCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OS_Ass1" />
@@ -160,10 +158,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CdCommandTest" />
         <item itemvalue="JUnit.MkdirCommandTest (1)" />
         <item itemvalue="JUnit.RmCommandTest" />
         <item itemvalue="JUnit.MkdirCommandTest" />
+        <item itemvalue="JUnit.CdCommandTest" />
         <item itemvalue="JUnit.HelpCommandTest" />
       </list>
     </recent_temporary>
@@ -201,8 +199,6 @@
       <workItem from="1730224363387" duration="166000" />
       <workItem from="1730233317665" duration="852000" />
       <workItem from="1730311189362" duration="3505000" />
-      <workItem from="1730315317863" duration="172000" />
-      <workItem from="1730315517022" duration="2407000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
