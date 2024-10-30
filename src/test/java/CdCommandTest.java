@@ -4,40 +4,52 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CdCommandTest {
 
+    private Path basePath;
+
     @BeforeEach
-    void setUp() {
-        CdCommand.cw = System.getProperty("user.dir");
+    void setUp() throws IOException {
+        // Create a temporary directory for testing
+        basePath = Files.createTempDirectory("testDir");
+        CdCommand.cw = basePath.toString(); // Set the current working directory to the temporary base path
     }
 
     @Test
     void testChangeToValidDirectory() {
-        new File(CdCommand.cw, "testDirectory").mkdir(); // Create a test directory for the test
+        // Create a test directory for the test
+        Path testDirectoryPath = basePath.resolve("testDirectory");
+        new File(testDirectoryPath.toString()).mkdir(); // Create directory
+
         String result = CdCommand.cd("testDirectory");
-        assertEquals("C:\\Users\\Ts\\IdeaProjects\\os1\\testDirectory", result);
+        assertEquals(testDirectoryPath.toString(), result);
     }
 
     @Test
     void testStayInCurrentDirectory() {
         String result = CdCommand.cd(".");
-        assertEquals("C:\\Users\\Ts\\IdeaProjects\\os1", result);
+        assertEquals(basePath.toString(), result); // Use basePath for assertion
     }
 
     @Test
     void testGoAboveRoot() {
-        CdCommand.cw= "C:\\"; // Set to root
+        CdCommand.cw = "C:\\"; // Set to root
         String result = CdCommand.cd("..");
         assertEquals("cannot go above root directory.", result);
     }
 
     @Test
     void testGoUpDirectory() {
+        // Calculate the parent directory based on the base path
+        Path parentPath = basePath.getParent(); // Go up one directory
         String result = CdCommand.cd("..");
-        assertEquals("C:\\Users\\Ts\\IdeaProjects", result); // Ensure this is correct based on your path structure
+        assertEquals(parentPath.toString(), result); // Use parentPath for assertion
     }
 
     @Test
@@ -46,4 +58,5 @@ public class CdCommandTest {
         assertEquals("Incorrect path: invalidDir", result);
     }
 }
+
 
