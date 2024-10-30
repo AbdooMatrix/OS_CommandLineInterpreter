@@ -16,16 +16,16 @@ public class CdCommandTest {
 
     @BeforeEach
     void setUp() throws IOException {
-        // Create a temporary directory for testing
+
         basePath = Files.createTempDirectory("testDir");
-        CdCommand.cw = basePath.toString(); // Set the current working directory to the temporary base path
+        CdCommand.cw = basePath.toString();
     }
 
     @Test
     void testChangeToValidDirectory() {
-        // Create a test directory for the test
+
         Path testDirectoryPath = basePath.resolve("testDirectory");
-        new File(testDirectoryPath.toString()).mkdir(); // Create directory
+        new File(testDirectoryPath.toString()).mkdir();
 
         String result = CdCommand.cd("testDirectory");
         assertEquals(testDirectoryPath.toString(), result);
@@ -34,22 +34,22 @@ public class CdCommandTest {
     @Test
     void testStayInCurrentDirectory() {
         String result = CdCommand.cd(".");
-        assertEquals(basePath.toString(), result); // Use basePath for assertion
+        assertEquals(basePath.toString(), result);
     }
 
     @Test
     void testGoAboveRoot() {
-        CdCommand.cw = "C:\\"; // Set to root
+        CdCommand.cw = "C:\\";
         String result = CdCommand.cd("..");
-        assertEquals("cannot go above root directory.", result);
+        assertEquals("Cannot go above root directory.", result);
     }
 
     @Test
     void testGoUpDirectory() {
-        // Calculate the parent directory based on the base path
-        Path parentPath = basePath.getParent(); // Go up one directory
+
+        Path parentPath = basePath.getParent();
         String result = CdCommand.cd("..");
-        assertEquals(parentPath.toString(), result); // Use parentPath for assertion
+        assertEquals(parentPath.toString(), result);
     }
 
     @Test
