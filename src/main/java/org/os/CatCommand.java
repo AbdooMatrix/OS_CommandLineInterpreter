@@ -3,6 +3,7 @@ package org.os;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -11,15 +12,29 @@ public class CatCommand {
         StringBuilder output = new StringBuilder();
 
         for (String filePathStr : filePaths) {
+            // Check for empty file path
             if (filePathStr == null || filePathStr.trim().isEmpty()) {
                 output.append("Error: No file path provided for one of the files.\n");
                 continue;
             }
 
-            Path filePath = Paths.get(filePathStr); // Treat each input as a full or relative path
+            // Normalize and create the Path object
+            Path filePath = Paths.get(filePathStr).normalize();
 
-            // Read and print each line from the file
-            try (BufferedReader reader = new BufferedReader(new FileReader(filePath.toString()))) {
+            // Check if the file exists
+            if (!Files.exists(filePath)) {
+                output.append("Error: File does not exist: ").append(filePath).append("\n");
+                continue;
+            }
+
+            // Check if the path is a file
+            if (!Files.isRegularFile(filePath)) {
+                output.append("Error: Path is not a file: ").append(filePath).append("\n");
+                continue;
+            }
+
+            // Read and append each line from the file to the output
+            try (BufferedReader reader = new BufferedReader(new FileReader(filePath.toFile()))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     output.append(line).append("\n");

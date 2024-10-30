@@ -3,31 +3,29 @@ package org.os;
 import java.io.File;
 
 public class RmCommand {
-    //static String cw = System.getProperty("user.dir");
 
     public String execute(String path) {
-        File file = new File( path);
+        if (path == null || path.trim().isEmpty()) {
+            return "Error: 'rm' command requires a file or directory path or name.\n";
+        }
+
+        File file = new File(path);
 
         if (!file.exists()) {
-            System.out.println("not exist: " + file.getAbsolutePath());
-            return "not exist";
+            return "Error: File or directory does not exist: " + file.getAbsolutePath() + "\n";
         }
 
         if (file.isDirectory()) {
             if (deleteDirectoryRecursively(file)) {
-                System.out.println("Successfully deleted: " + file.getAbsolutePath());
-                return "deleted successfully.";
+                return "Successfully deleted directory: " + file.getAbsolutePath() + "\n";
             } else {
-                System.out.println("Failed to delete: " + file.getAbsolutePath());
-                return "Failed to delete";
+                return "Error: Failed to delete directory: " + file.getAbsolutePath() + "\n";
             }
         } else {
             if (file.delete()) {
-                System.out.println("Successfully deleted: " + file.getAbsolutePath());
-                return "deleted successfully.";
+                return "Successfully deleted file: " + file.getAbsolutePath() + "\n";
             } else {
-                System.out.println("Failed to delete: " + file.getAbsolutePath());
-                return "Failed to delete";
+                return "Error: Failed to delete file: " + file.getAbsolutePath() + "\n";
             }
         }
     }
@@ -38,11 +36,12 @@ public class RmCommand {
             for (File file : allContents) {
                 if (file.isDirectory()) {
                     deleteDirectoryRecursively(file);
-                } else {
-                    file.delete();
+                }
+                if (!file.delete()) {
+                    System.err.println("Error: Could not delete file: " + file.getAbsolutePath());
                 }
             }
         }
-        return dir.delete();
+        return dir.delete(); // Try to delete the directory after clearing its contents
     }
 }

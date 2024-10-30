@@ -7,6 +7,10 @@ public class TouchCommand {
 
     // Method to create a new file or update an existing file's timestamp
     public String createOrUpdateFile(String path) {
+        if (path == null || path.trim().isEmpty()) {
+            return "Error: 'touch' command requires a file name or path.\n";
+        }
+
         // Create a File object for the given path
         File file = new File(path);
 
@@ -23,7 +27,7 @@ public class TouchCommand {
                 if (success) {
                     output.append("Updated timestamp of file: ").append(path).append("\n");
                 } else {
-                    output.append("Error: Could not update timestamp.\n");
+                    output.append("Error: Could not update the timestamp for the file: ").append(path).append("\n");
                 }
             } else {
                 // If file doesn't exist, create a new file
@@ -33,12 +37,12 @@ public class TouchCommand {
                 if (created) {
                     output.append("Created new file: ").append(path).append("\n");
                 } else {
-                    output.append("Error: Could not create file.\n");
+                    output.append("Error: Could not create the file: ").append(path).append("\n");
                 }
             }
         } catch (IOException e) {
             // Handle any IO exceptions that occur
-            output.append("Error: An IOException occurred: ").append(e.getMessage()).append("\n");
+            output.append("Error: An IOException occurred while accessing ").append(path).append(": ").append(e.getMessage()).append("\n");
         }
 
         // Return the output message

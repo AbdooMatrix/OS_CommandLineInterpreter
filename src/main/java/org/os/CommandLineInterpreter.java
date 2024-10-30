@@ -11,89 +11,92 @@ public class CommandLineInterpreter {
         System.out.println("Welcome to the CLI. Type 'exit' to quit.");
 
         String currDir = PWDCommand.getInstance().getCurrentDirec();
-        HelpCommand helpCommand = new HelpCommand(); // Create instance of HelpCommand
+        HelpCommand helpCommand = new HelpCommand();
 
         loop:
         while (true) {
             System.out.print(currDir + " --> ");
             String input = scanner.nextLine().trim();
 
-            // Check if input contains a pipe and handle accordingly
             if (input.contains("|")) {
-                PipeCommand.runPipe(input); // Run pipe command processing
+                try {
+                    PipeCommand.runPipe(input);
+                } catch (Exception e) {
+                    System.out.println("Error with pipe command: " + e.getMessage());
+                }
                 continue;
             }
 
-            // Split command input based on ">>" first, then ">" to handle both cases
             String[] commandParts = input.split(">>");
-            String commandInput = commandParts[0].trim(); // Command part
+            String commandInput = commandParts[0].trim();
             String filePath = null;
 
             if (commandParts.length > 1) {
-                filePath = commandParts[1].trim(); // Output file if redirected with ">>"
+                filePath = commandParts[1].trim();
             } else {
                 commandParts = input.split(">");
                 if (commandParts.length > 1) {
-                    filePath = commandParts[1].trim(); // Output file if redirected with ">"
+                    filePath = commandParts[1].trim();
                 }
             }
 
-            // Split command input into tokens while handling paths with spaces
             List<String> tokens = parseCommandInput(commandInput);
-
             if (tokens.isEmpty()) continue;
 
             String command = tokens.get(0);
             String output = "";
 
-            switch (command) {
-                case "exit":
-                    ExitCommand exitCommand = new ExitCommand(scanner, true); // Set shouldExit to true to allow exiting
-                    exitCommand.execute();
-                    break loop;
+            try {
+                switch (command) {
+                    case "exit":
+                        ExitCommand exitCommand = new ExitCommand(scanner, true);
+                        exitCommand.execute();
+                        break loop;
 
-                case "help":
-                    output = helpCommand.getHelpText(); // Call HelpCommand instance
-                    break;
+                    case "help":
+                        output = helpCommand.getHelpText();
+                        break;
 
-                case "ls":
-                    output = handleLsCommand(tokens, currDir);
-                    break;
+                    case "ls":
+                        output = handleLsCommand(tokens, currDir);
+                        break;
 
-                case "rm":
-                    output = handleRmCommand(tokens);
-                    break;
+                    case "rm":
+                        output = handleRmCommand(tokens);
+                        break;
 
-                case "rmdir": // Add this case for rmdir
-                    output = handleRmdirCommand(tokens);
-                    break;
+                    case "rmdir":
+                        output = handleRmdirCommand(tokens);
+                        break;
 
-                case "mv":
-                    output = handleMvCommand(tokens);
-                    break;
+                    case "mv":
+                        output = handleMvCommand(tokens);
+                        break;
 
-                case "touch":
-                    output = new TouchCommand().createOrUpdateFile(tokens.size() > 1 ? tokens.get(1) : null);
-                    break;
+                    case "touch":
+                        output = new TouchCommand().createOrUpdateFile(tokens.size() > 1 ? tokens.get(1) : null);
+                        break;
 
-                case "cat":
-                    output = handleCatCommand(tokens);
-                    break;
+                    case "cat":
+                        output = handleCatCommand(tokens);
+                        break;
 
-                case "cd":
-                    currDir = CdCommand.cd(tokens.size() > 1 ? tokens.get(1) : currDir);
-                    break;
+                    case "cd":
+                        currDir = CdCommand.cd(tokens.size() > 1 ? tokens.get(1) : currDir);
+                        break;
 
-                case "mkdir":
-                    output = new MkdirCommand().execute(tokens.size() > 1 ? tokens.get(1) : currDir);
-                    break;
+                    case "mkdir":
+                        output = new MkdirCommand().execute(tokens.size() > 1 ? tokens.get(1) : currDir);
+                        break;
 
-                default:
-                    output = "Error: Command not recognized. Type 'help' for a list of commands.\n";
-                    break;
+                    default:
+                        output = "Error: Command not recognized. Type 'help' for a list of commands.\n";
+                        break;
+                }
+            } catch (Exception e) {
+                output = "An error occurred while executing the command: " + e.getMessage() + "\n";
             }
 
-            // Redirect output if ">" or ">>" is specified; otherwise, print to console
             if (filePath != null) {
                 if (input.contains(">>")) {
                     OutputRedirector.appendOutput(output, filePath);
@@ -109,14 +112,18 @@ public class CommandLineInterpreter {
     }
 
     private static String handleLsCommand(List<String> tokens, String currDir) {
-        if (tokens.size() == 1) {
-            return LsCommand.listDirectory(currDir);
-        } else if ("-a".equals(tokens.get(1))) {
-            return LsCommand.listAllFiles(tokens.size() > 2 ? tokens.get(2) : currDir);
-        } else if ("-r".equals(tokens.get(1))) {
-            return LsCommand.listFilesReversed(tokens.size() > 2 ? tokens.get(2) : currDir);
-        } else {
-            return LsCommand.listDirectory(tokens.size() == 2 ? tokens.get(1) : currDir);
+        try {
+            if (tokens.size() == 1) {
+                return LsCommand.listDirectory(currDir);
+            } else if ("-a".equals(tokens.get(1))) {
+                return LsCommand.listAllFiles(tokens.size() > 2 ? tokens.get(2) : currDir);
+            } else if ("-r".equals(tokens.get(1))) {
+                return LsCommand.listFilesReversed(tokens.size() > 2 ? tokens.get(2) : currDir);
+            } else {
+                return LsCommand.listDirectory(tokens.size() == 2 ? tokens.get(1) : currDir);
+            }
+        } catch (Exception e) {
+            return "Error executing ls command: " + e.getMessage() + "\n";
         }
     }
 
@@ -124,29 +131,33 @@ public class CommandLineInterpreter {
         if (tokens.size() < 2) {
             return "Error: 'rm' requires a path.\n";
         }
-        String pathToDelete = tokens.get(1);
-        return new RmCommand().execute(pathToDelete);
+        try {
+            return new RmCommand().execute(tokens.get(1));
+        } catch (Exception e) {
+            return "Error executing rm command: " + e.getMessage() + "\n";
+        }
     }
 
     private static String handleRmdirCommand(List<String> tokens) {
         if (tokens.size() < 2) {
             return "Error: 'rmdir' requires a directory path.\n";
         }
-        String dirPathToDelete = tokens.get(1);
-        return new RmdirCommand().rmdir(dirPathToDelete);
+        try {
+            return new RmdirCommand().rmdir(tokens.get(1));
+        } catch (Exception e) {
+            return "Error executing rmdir command: " + e.getMessage() + "\n";
+        }
     }
 
     private static String handleMvCommand(List<String> tokens) {
         if (tokens.size() < 3) {
             return "Error: 'mv' requires source and destination paths.\n";
         }
-        String srcPath = tokens.get(1);
-        String destPath = tokens.get(2);
         try {
-            MoveCommand.getInstance().move(srcPath, destPath);
-            return "Moved successfully from (" + srcPath + ") to (" + destPath + ")\n";
+            MoveCommand.getInstance().move(tokens.get(1), tokens.get(2));
+            return "Moved successfully from (" + tokens.get(1) + ") to (" + tokens.get(2) + ")\n";
         } catch (IOException e) {
-            return "Error: " + e.getMessage() + "\n";
+            return "Error executing mv command: " + e.getMessage() + "\n";
         }
     }
 
@@ -155,7 +166,11 @@ public class CommandLineInterpreter {
         for (int i = 1; i < tokens.size(); i++) {
             filePaths[i - 1] = tokens.get(i).trim();
         }
-        return new CatCommand().cat(filePaths);
+        try {
+            return new CatCommand().cat(filePaths);
+        } catch (Exception e) {
+            return "Error executing cat command: " + e.getMessage() + "\n";
+        }
     }
 
     private static List<String> parseCommandInput(String commandInput) {

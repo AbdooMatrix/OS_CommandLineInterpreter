@@ -30,16 +30,22 @@ public class LsCommand {
         try {
             List<Path> files = Files.list(path)
                     .filter(p -> includeHidden || !isHidden(p)) // Exclude hidden files if includeHidden is false
-                    .sorted((path1, path2) -> reverseOrder ? path2.getFileName().toString().compareToIgnoreCase(path1.getFileName().toString())
+                    .sorted((path1, path2) -> reverseOrder
+                            ? path2.getFileName().toString().compareToIgnoreCase(path1.getFileName().toString())
                             : path1.getFileName().toString().compareToIgnoreCase(path2.getFileName().toString()))
                     .collect(Collectors.toList());
+
+            // Check if the directory is empty
+            if (files.isEmpty()) {
+                return "No files found in directory: " + path.toString();
+            }
 
             return files.stream()
                     .map(p -> p.getFileName().toString())
                     .collect(Collectors.joining("\n")) + "\n";
         } catch (IOException e) {
             System.err.println("Error listing directory contents: " + e.getMessage());
-            return "Error listing directory contents.";
+            return "Error: Unable to list directory contents: " + e.getMessage();
         }
     }
 

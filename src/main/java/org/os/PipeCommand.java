@@ -1,4 +1,5 @@
 package org.os;
+
 import java.io.IOException;
 
 public class PipeCommand {
@@ -15,14 +16,11 @@ public class PipeCommand {
 
             Object cmd = getCommand(commandName);
             if (cmd == null) {
-                throw new IllegalArgumentException("Unknown command: " + commandName);
+                return "Error: Unknown command: " + commandName + "\n";
             }
 
             if (i > 0 && output != null) {
-                if (output.startsWith("Directory created at:")) {
-                    output = output.replace("Directory created at: ", "").trim();
-                }
-                arg = output;
+                arg = output; // Use output of the previous command as argument for the next
             }
 
             String result = null;
@@ -41,6 +39,8 @@ public class PipeCommand {
                     if (paths.length == 2) {
                         ((MoveCommand) cmd).move(paths[0], paths[1]);
                         result = "Move successful";
+                    } else {
+                        result = "Error: 'mv' command requires source and destination paths.\n";
                     }
                 } else if (cmd instanceof PWDCommand) {
                     result = ((PWDCommand) cmd).getCurrentDirec();
@@ -60,13 +60,17 @@ public class PipeCommand {
                     }
                 }
             } catch (IOException e) {
-                result = "Error executing " + commandName + ": " + e.getMessage();
+                result = "Error executing " + commandName + ": " + e.getMessage() + "\n";
+            } catch (IllegalArgumentException e) {
+                result = "Error: " + e.getMessage() + "\n";
+            } catch (Exception e) {
+                result = "Error: An unexpected error occurred while executing " + commandName + ": " + e.getMessage() + "\n";
             }
 
             if (result != null) {
                 System.out.println("Output of " + commandName + ": " + result);
             }
-            output = result;
+            output = result; // Save the output for the next command
         }
         return output;
     }
@@ -96,13 +100,3 @@ public class PipeCommand {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
