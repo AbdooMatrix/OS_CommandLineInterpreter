@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="add pipe in the main">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="04e879ff-95d3-4d94-a753-a49bec16879f" name="Changes" comment="updated OutputRedirector">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/os/HelpCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,11 +90,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.OutputRedirectorTest">
-    <configuration name="LsCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HelpCommandTest">
+    <configuration name="HelpCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OS_Ass1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LsCommandTest" />
+      <option name="MAIN_CLASS_NAME" value="HelpCommandTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HelpCommandTest" />
         <item itemvalue="JUnit.OutputRedirectorTest" />
         <item itemvalue="JUnit.RmCommandTest" />
         <item itemvalue="JUnit.TouchCommandTest" />
         <item itemvalue="JUnit.RmdirCommandTest (1)" />
-        <item itemvalue="JUnit.LsCommandTest" />
       </list>
     </recent_temporary>
   </component>
@@ -321,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730219200834</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="updated OutputRedirector">
+      <option name="closed" value="true" />
+      <created>1730309616518</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1730309616518</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +362,8 @@
     <MESSAGE value="small fix" />
     <MESSAGE value="made getHelp() function better and more simple with adding examples to make it easier for the user" />
     <MESSAGE value="add pipe in the main" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pipe in the main" />
+    <MESSAGE value="updated OutputRedirector" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated OutputRedirector" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
